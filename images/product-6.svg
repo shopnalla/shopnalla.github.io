@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+<rect width="400" height="400" fill="#E4D5B7"/>
+<rect x="110" y="120" width="180" height="140" rx="10" fill="none" stroke="#A1663F" stroke-width="6"/>
+<line x1="110" y1="155" x2="290" y2="155" stroke="#A1663F" stroke-width="4"/>
+<line x1="110" y1="190" x2="290" y2="190" stroke="#A1663F" stroke-width="4"/>
+<line x1="110" y1="225" x2="290" y2="225" stroke="#A1663F" stroke-width="4"/>
+<text x="200" y="300" font-family="Georgia, serif" font-size="20" fill="#6B4A2E" text-anchor="middle">Baby Blanket</text>
+<text x="200" y="330" font-family="Georgia, serif" font-size="14" fill="#8A6D52" text-anchor="middle">photo coming soon</text>
+</svg>
