@@ -264,6 +264,43 @@
     box-shadow: 0 0 0 3px rgba(150,79,19,0.28);
   }
   .field textarea { resize: vertical; min-height: 96px; }
+  .field input[readonly] { background: var(--cream); color: var(--ink-soft); }
+  .address-group { border: none; margin: 8px 0 4px; padding: 0; min-width: 0; }
+  .address-group legend { font-weight: 700; font-size: 17px; color: var(--ink); margin-bottom: 2px; padding: 0; }
+  .address-group > .hint { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+  .loc-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 8px;
+    min-height: 44px;
+    padding: 8px 16px;
+    background: #fff;
+    color: var(--clay);
+    border: 1.5px solid var(--clay);
+    border-radius: 999px;
+    font-weight: 600; font-size: 14.5px;
+    cursor: pointer;
+    transition: background 180ms ease;
+  }
+  .loc-btn:hover { background: var(--cream); }
+  .pay-box {
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin: 6px 0 22px;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  .pay-box .pay-title { font-weight: 700; color: var(--ink); font-size: 16px; margin-bottom: 6px; }
+  .pay-box ol { margin-left: 20px; }
+  .pay-box li + li { margin-top: 6px; }
+  .pay-box strong { color: var(--ink); }
+  .pay-estimate { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+  .pay-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 12px; }
+  .pay-row span, .pay-row strong { white-space: nowrap; }
+  .pay-row + .pay-row { margin-top: 4px; }
+  .pay-row strong { color: var(--clay); text-align: right; margin-left: auto; }
+  @media (max-width: 560px) { .field-row { grid-template-columns: 1fr; } }
   .bag-preview {
     background: var(--cream);
     border-radius: 12px;
@@ -537,29 +574,29 @@
       <li class="making-step">
         <span class="num" aria-hidden="true">2</span>
         <h3>We say hello</h3>
-        <p>We'll message you to confirm the price, colours, timing and delivery before we begin.</p>
+        <p>We'll message you to confirm the details, then send you everything you need to pay the 200 EGP deposit.</p>
       </li>
       <li class="making-step">
         <span class="num" aria-hidden="true">3</span>
         <h3>We get stitching</h3>
-        <p>Your piece is crocheted by hand, stitch by stitch, with lots of love and care.</p>
+        <p>As soon as your deposit arrives, we start crocheting your piece by hand, stitch by stitch.</p>
       </li>
       <li class="making-step">
         <span class="num" aria-hidden="true">4</span>
         <h3>It comes to you</h3>
-        <p>We wrap it up and send it your way, with tracking so you can follow along.</p>
+        <p>We deliver it to your door, and you pay the rest by InstaPay or cash when it arrives.</p>
       </li>
     </ol>
   </section>
 
   <section id="story" class="about" aria-labelledby="story-title">
     <h2 id="story-title">Hello, we're Nalla</h2>
-    <p class="lead">Nalla is a small crochet studio in Egypt with a big love for yarn, colour and making things by hand. Every bag, blanket and little bear is made to order, so you can choose your colours, ask for a different size or add a special touch of your own. We deliver all over Egypt and we're happy to send your order abroad too. Just tell us where you are.</p>
+    <p class="lead">Nalla is a small crochet studio in Egypt with a big love for yarn, colour and making things by hand. Every bag, blanket and little bear is made to order, so you can choose your colours, ask for a different size or add a special touch of your own. We deliver all over Egypt, right to your door.</p>
   </section>
 
   <section id="order" aria-labelledby="order-title">
     <h2 id="order-title">Place your order</h2>
-    <p class="lead">Share your details below and we'll be in touch soon to confirm everything with you. Nothing starts until you're happy.</p>
+    <p class="lead">Share your details below and we'll message you soon to confirm everything. A 200 EGP deposit confirms your order, and you pay the rest when it arrives.</p>
 
     <div class="order-wrap">
       <p class="wa-alt">Prefer to chat? <a id="waInline" href="#" target="_blank" rel="noopener">Order with us on WhatsApp</a></p>
@@ -580,7 +617,7 @@
         <div class="field">
           <label for="phone">Phone or WhatsApp number <span class="req" aria-hidden="true">*</span></label>
           <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required aria-describedby="phoneHint" placeholder="For example: 010 1234 5678">
-          <p class="hint" id="phoneHint">So we can confirm your order and arrange delivery.</p>
+          <p class="hint" id="phoneHint">We'll use this to confirm your order and send you the deposit details.</p>
         </div>
 
         <div class="field">
@@ -602,9 +639,62 @@
           <textarea id="details" name="details" placeholder="For example: mustard yellow, medium size, and I'd love it before the 20th"></textarea>
         </div>
 
-        <div class="field">
-          <label for="address">Delivery address <span class="req" aria-hidden="true">*</span></label>
-          <textarea id="address" name="address" autocomplete="street-address" required placeholder="Street, area and city. For example: 12 Road 9, Maadi, Cairo"></textarea>
+        <fieldset class="address-group">
+          <legend>Delivery address</legend>
+          <p class="hint">The more exact your address, the faster and smoother your delivery.</p>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="addrBuilding">Apartment and building, or house number <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="addrBuilding" name="building" autocomplete="address-line2" required placeholder="For example: Apartment 4, Building 12">
+            </div>
+            <div class="field">
+              <label for="addrStreet">Street <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="addrStreet" name="street" autocomplete="address-line1" required placeholder="For example: Road 9">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="addrArea">Area <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="addrArea" name="area" autocomplete="address-level3" required placeholder="For example: Maadi">
+            </div>
+            <div class="field">
+              <label for="addrCity">City <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="addrCity" name="city" autocomplete="address-level2" required placeholder="For example: Cairo">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="addrCountry">Country</label>
+            <input type="text" id="addrCountry" name="country" value="Egypt" readonly aria-describedby="countryHint">
+            <p class="hint" id="countryHint">We deliver within Egypt for now.</p>
+          </div>
+
+          <div class="field">
+            <label for="addrLandmark">Nearby landmark <span class="opt">(optional)</span></label>
+            <input type="text" id="addrLandmark" name="landmark" placeholder="For example: next to the pharmacy or opposite the school">
+          </div>
+
+          <div class="field">
+            <label for="mapsLink">Google Maps location link <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="mapsLink" name="maps" inputmode="url" autocomplete="off" required aria-describedby="mapsHint locStatus" placeholder="For example: https://maps.app.goo.gl/abc123">
+            <p class="hint" id="mapsHint">In Google Maps, press and hold on your building, tap Share, then Copy link and paste it here.</p>
+            <button type="button" class="loc-btn" id="useLocation">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              Use my current location
+            </button>
+            <p class="hint" id="locStatus" aria-live="polite"></p>
+          </div>
+        </fieldset>
+
+        <div class="pay-box">
+          <p class="pay-title">How payment works</p>
+          <ol>
+            <li><strong>200 EGP deposit</strong> to confirm your order, by InstaPay, mobile wallet or bank transfer. It covers the yarn and materials for your piece, and we'll send you the payment details.</li>
+            <li><strong>The rest on delivery</strong>, by InstaPay or cash when your order arrives. Your deposit comes off the total.</li>
+          </ol>
+          <div class="pay-estimate" id="payEstimate" hidden></div>
         </div>
 
         <button type="submit" class="btn" id="submitBtn">Send my order</button>
@@ -613,7 +703,7 @@
 
       <div id="formSuccess" class="form-success" hidden>
         <h3 tabindex="-1" id="successTitle">Thank you, we've got it!</h3>
-        <p>Your order is on its way to us. We'll be in touch very soon to confirm the details, and we can't wait to start making it for you.</p>
+        <p>Your order is on its way to us. We'll message you very soon to confirm the details and send you everything you need for the 200 EGP deposit. As soon as it arrives, we'll start making your piece.</p>
         <button type="button" class="btn ghost" id="anotherOrder">Place another order</button>
       </div>
     </div>
@@ -626,7 +716,7 @@
     <details class="policy">
       <summary>Made to order and timing</summary>
       <div class="policy-body">
-        <p>We don't keep ready-made stock. We start making your piece once you've confirmed your order, and the making time on each product is our best estimate rather than a promise.</p>
+        <p>We don't keep ready-made stock. We start making your piece as soon as your 200 EGP deposit arrives, and the making time on each product is our best estimate rather than a promise.</p>
         <p>Busy seasons, bigger sizes or special colour requests can add a little time. We'll always give you an honest estimate before you commit, and let you know straight away if anything changes. Delivery time comes after making time.</p>
       </div>
     </details>
@@ -634,8 +724,8 @@
     <details class="policy">
       <summary>Changes and cancellations</summary>
       <div class="policy-body">
-        <p>Changed your mind about a colour or size? No problem at all. You can change or cancel your order for free any time before we start making it. Just send us a message.</p>
-        <p>Once we've started, the yarn has already been cut and worked, so we may not be able to cancel. We'll always talk it through with you and find the fairest way forward.</p>
+        <p>Changed your mind about a colour or size? No problem at all. Just message us before we start making your piece and we'll happily update your order.</p>
+        <p>Once we've started, the yarn has already been bought and worked, so the deposit can't be refunded. We'll always talk it through with you and find the fairest way forward.</p>
       </div>
     </details>
 
@@ -663,16 +753,17 @@
     <details class="policy">
       <summary>Payment</summary>
       <div class="policy-body">
-        <p>We'll confirm the full price, including delivery, before we start. For custom or larger pieces we may ask for a deposit to cover materials, with the rest due before your order is sent.</p>
-        <p>Because a deposit pays for yarn we've already bought and used, it usually can't be refunded once making has begun.</p>
+        <p>Your order is confirmed with a 200 EGP deposit, paid by InstaPay, mobile wallet or bank transfer. It covers the yarn and materials for your piece, and we start making it as soon as the deposit arrives.</p>
+        <p>The rest is paid when your order is delivered, by InstaPay or cash on delivery. Your deposit comes off the total, so a 1,200 EGP piece means 200 EGP now and 1,000 EGP plus delivery when it arrives.</p>
+        <p>Because the deposit pays for materials bought and used for your piece, it can't be refunded once making has begun.</p>
       </div>
     </details>
 
     <details class="policy">
       <summary>Delivery</summary>
       <div class="policy-body">
-        <p>We deliver all over Egypt and we're happy to send orders abroad on request. Delivery costs depend on where you are, and we'll confirm them with you before your order is final.</p>
-        <p>Once your parcel is with the courier, we'll share the tracking details and help follow up if anything goes astray. For orders outside Egypt, any customs or import fees are paid by the customer.</p>
+        <p>We deliver all over Egypt. Delivery fees depend on your area, and we'll confirm them with you before we start.</p>
+        <p>To make sure your order reaches you on time, we ask for your full address and a Google Maps location link. We'll let you know when your parcel is on its way and help follow up if anything goes astray.</p>
       </div>
     </details>
   </section>
@@ -716,7 +807,7 @@
 
   <div class="cart-foot" id="cartFoot" hidden>
     <div class="cart-total"><span>Total</span><strong id="cartTotal">0 EGP</strong></div>
-    <p class="cart-sub">Plus delivery, which we'll confirm with you.</p>
+    <p class="cart-sub" id="cartSub"></p>
     <p class="cart-lead" id="cartLead"></p>
     <a class="cart-cta wa" id="cartWa" href="#" target="_blank" rel="noopener">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -757,6 +848,7 @@
   const WHATSAPP_NUMBER = '201031411121';
   const STORAGE_KEY = 'nalla_bag_v2';
   const MAX_QTY = 10;
+  const DEPOSIT = 200;
 
   const $ = id => document.getElementById(id);
   const byId = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
@@ -806,8 +898,11 @@
 
   function bagSummaryText() {
     const slow = slowestLead();
+    const total = bagTotal();
     return bagLines().join('\n') +
-      `\n\nTotal: ${egp(bagTotal())} plus delivery` +
+      `\n\nTotal: ${egp(total)} plus delivery` +
+      `\nDeposit to confirm: ${egp(DEPOSIT)}` +
+      `\nOn delivery: ${egp(Math.max(total - DEPOSIT, 0))} plus delivery` +
       (slow ? `\nEstimated making time: about ${slow.lead}` : '');
   }
 
@@ -889,6 +984,7 @@
     option.disabled = count === 0;
     option.textContent = count ? `Everything in my bag (${itemsLabel(count)})` : 'Everything in my bag (empty)';
     if (!count && $('product').value === 'bag') $('product').value = '';
+    renderPayEstimate();
     if ($('product').value !== 'bag') { box.hidden = true; return; }
     const list = el('ul', {}, bag.map(i => {
       const p = byId[i.id];
@@ -944,12 +1040,13 @@
 
     foot.hidden = false;
     $('cartTotal').textContent = egp(bagTotal());
+    $('cartSub').textContent = `Plus delivery. Pay ${egp(DEPOSIT)} now to confirm and ${egp(Math.max(bagTotal() - DEPOSIT, 0))} when it arrives.`;
     const slow = slowestLead();
     $('cartLead').innerHTML = clockSvg;
     $('cartLead').append(count > 1
       ? `Made to order, about ${slow.lead}. We'll confirm the exact timing.`
       : `Made to order, ready in about ${slow.lead}`);
-    $('cartWa').href = waLink(`Hi Nalla! I'd love to order:\n\n${bagSummaryText()}\n\nMy name:\nMy delivery area:`);
+    $('cartWa').href = waLink(`Hi Nalla! I'd love to order:\n\n${bagSummaryText()}\n\nMy name:\nMy address (building, street, area, city):\nNearby landmark:\nMy Google Maps location link:`);
 
     renderBagPreview();
 
@@ -1007,6 +1104,58 @@
 
   /* Order form */
   let sending = false;
+  const MAPS_RE = /^https?:\/\/(maps\.app\.goo\.gl|goo\.gl\/maps|(www\.)?google\.[a-z.]{2,6}\/maps|maps\.google\.[a-z.]{2,6})\S*$/i;
+
+  function checkMapsLink() {
+    const input = $('mapsLink');
+    const found = input.value.match(/https?:\/\/\S+/i);
+    if (found && found[0] !== input.value.trim()) input.value = found[0];
+    const v = input.value.trim();
+    input.setCustomValidity(!v || MAPS_RE.test(v) ? '' : 'Please paste a Google Maps link, for example https://maps.app.goo.gl/abc123');
+  }
+
+  function orderTotalFor(choice) {
+    if (choice === 'bag') return bagTotal();
+    return byId[choice] ? byId[choice].price : null;
+  }
+
+  function paymentText(total) {
+    return total === null
+      ? `Deposit to confirm: ${egp(DEPOSIT)}. Rest of the price: to be confirmed.`
+      : `Deposit to confirm: ${egp(DEPOSIT)}. On delivery: ${egp(Math.max(total - DEPOSIT, 0))} plus delivery.`;
+  }
+
+  function renderPayEstimate() {
+    const box = $('payEstimate');
+    const choice = $('product').value;
+    if (!choice) { box.hidden = true; return; }
+    const total = orderTotalFor(choice);
+    const row = (label, value) => el('div', { class: 'pay-row' }, [el('span', { text: label }), el('strong', { text: value })]);
+    box.replaceChildren(
+      row('Deposit to confirm your order', egp(DEPOSIT)),
+      total === null
+        ? row('Rest of the price', "We'll confirm it with you")
+        : row('Pay on delivery', `${egp(Math.max(total - DEPOSIT, 0))} plus delivery`)
+    );
+    box.hidden = false;
+  }
+
+  function useMyLocation() {
+    const status = $('locStatus');
+    if (!navigator.geolocation) {
+      status.textContent = "Your browser can't share your location, so please paste a Google Maps link instead.";
+      return;
+    }
+    status.textContent = 'Finding your location';
+    navigator.geolocation.getCurrentPosition(pos => {
+      const { latitude, longitude } = pos.coords;
+      $('mapsLink').value = `https://www.google.com/maps?q=${latitude.toFixed(6)},${longitude.toFixed(6)}`;
+      checkMapsLink();
+      status.textContent = "Location added. Please make sure you're at your delivery address.";
+    }, () => {
+      status.textContent = "We couldn't get your location. Please paste a Google Maps link instead.";
+    }, { enableHighAccuracy: true, timeout: 10000 });
+  }
 
   function orderChoiceLabel(value) {
     if (value === 'bag') return `Everything in my bag (${itemsLabel(bagCount())})`;
@@ -1024,7 +1173,13 @@
       `Order: ${d.orderLabel}`,
       d.bag ? `\n${d.bag}\n` : null,
       `Colours, sizes and requests: ${d.details || 'None'}`,
-      `Delivery address: ${d.address}`
+      'Delivery address:',
+      `${d.building}, ${d.street}`,
+      `${d.area}, ${d.city}, ${d.country}`,
+      d.landmark ? `Landmark: ${d.landmark}` : null,
+      `Google Maps: ${d.maps}`,
+      d.bag ? null : '',
+      d.bag ? null : d.payment
     ].filter(l => l !== null).join('\n');
   }
 
@@ -1055,6 +1210,7 @@
     e.preventDefault();
     if (sending) return;
     const form = $('orderForm');
+    checkMapsLink();
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
     const choice = $('product').value;
@@ -1065,7 +1221,14 @@
       orderLabel: orderChoiceLabel(choice),
       bag: choice === 'bag' ? bagSummaryText() : '',
       details: $('details').value.trim(),
-      address: $('address').value.trim()
+      building: $('addrBuilding').value.trim(),
+      street: $('addrStreet').value.trim(),
+      area: $('addrArea').value.trim(),
+      city: $('addrCity').value.trim(),
+      country: $('addrCountry').value.trim() || 'Egypt',
+      landmark: $('addrLandmark').value.trim(),
+      maps: $('mapsLink').value.trim(),
+      payment: paymentText(orderTotalFor(choice))
     };
 
     if ($('honey').value) { form.reset(); showSuccess(); return; }
@@ -1092,7 +1255,15 @@
         Order: d.orderLabel,
         'Bag contents': d.bag || 'Not from the bag',
         'Colours, sizes and requests': d.details || 'None',
-        'Delivery address': d.address
+        'Full address': `${d.building}, ${d.street}, ${d.area}, ${d.city}, ${d.country}`,
+        'Apartment and building, or house number': d.building,
+        Street: d.street,
+        Area: d.area,
+        City: d.city,
+        Country: d.country,
+        'Nearby landmark': d.landmark || 'None',
+        'Google Maps location': d.maps,
+        Payment: d.payment
       };
       if (d.email) payload._replyto = d.email;
 
@@ -1149,6 +1320,8 @@
     setTimeout(() => $('name').focus({ preventScroll: true }), 450);
   });
 
+  $('mapsLink').addEventListener('input', checkMapsLink);
+  $('useLocation').addEventListener('click', useMyLocation);
   $('orderForm').addEventListener('submit', submitOrder);
   $('anotherOrder').addEventListener('click', () => {
     $('formSuccess').hidden = true;
