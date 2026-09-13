@@ -12,8 +12,8 @@
 <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Cabin:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Cabin:wght@400;600;700&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Cabin:wght@400;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Cabin:wght@400;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap"></noscript>
 <style>
   :root {
     --clay: #964F13;
@@ -28,6 +28,7 @@
     --line: #E2D5BC;
     --field: #8C7A60;
     --display: 'Amatic SC', 'Cabin', sans-serif;
+    --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
     --body: 'Cabin', system-ui, -apple-system, 'Segoe UI', sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,7 +43,8 @@
   }
   body.bag-open { overflow: hidden; }
   button, input, select, textarea { font: inherit; color: inherit; }
-  h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: 0.5px; line-height: 1.1; }
+  h1 { font-family: var(--display); font-weight: 700; letter-spacing: 0.5px; line-height: 1.1; }
+  h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; font-optical-sizing: auto; }
   a { color: inherit; }
   img { max-width: 100%; display: block; }
   :focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; border-radius: 6px; }
@@ -75,10 +77,9 @@
   }
   header nav { display: flex; align-items: center; gap: 22px; }
   header nav a {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 25px;
-    letter-spacing: 0.5px;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 15.5px;
     text-decoration: none;
     color: var(--ink-soft);
     padding: 6px 2px;
@@ -146,7 +147,7 @@
 
   /* Sections */
   main > section { padding: 64px 24px; max-width: 1120px; margin: 0 auto; scroll-margin-top: 84px; }
-  section h2 { font-size: clamp(42px, 6vw, 54px); color: var(--clay); text-align: center; margin-bottom: 12px; }
+  section h2 { font-size: clamp(30px, 4.6vw, 40px); color: var(--clay); text-align: center; margin-bottom: 14px; }
   .lead { text-align: center; color: var(--ink-soft); font-size: 17px; max-width: 600px; margin: 0 auto 40px; }
 
   /* Products */
@@ -166,7 +167,7 @@
   .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(74,54,38,0.12); }
   .card img { aspect-ratio: 1 / 1; object-fit: cover; width: 100%; height: auto; background: var(--sand); }
   .card-body { padding: 20px 20px 22px; display: flex; flex-direction: column; flex: 1; }
-  .card-body h3 { font-size: 30px; color: var(--ink); }
+  .card-body h3 { font-size: 21px; color: var(--ink); margin-bottom: 2px; }
   .card-body .price { color: var(--clay); font-weight: 700; font-size: 17px; margin: 2px 0 8px; }
   .card-body .desc { font-size: 15px; color: var(--ink-soft); margin-bottom: 14px; flex: 1; }
   .lead-time {
@@ -215,7 +216,7 @@
     font-weight: 700; font-size: 17px;
     margin-bottom: 12px;
   }
-  .making-step h3 { font-size: 28px; color: var(--ink); margin-bottom: 6px; }
+  .making-step h3 { font-size: 20px; color: var(--ink); margin-bottom: 6px; }
   .making-step p { font-size: 15px; color: var(--ink-soft); }
 
   /* About */
@@ -279,7 +280,7 @@
   .order-note { font-size: 14px; color: var(--ink-soft); margin-top: 14px; text-align: center; }
   .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .form-success { text-align: center; padding: 16px 4px; }
-  .form-success h3 { font-size: 44px; color: var(--clay); margin-bottom: 10px; }
+  .form-success h3 { font-size: 30px; color: var(--clay); margin-bottom: 10px; }
   .form-success h3:focus { outline: none; }
   .form-success p { color: var(--ink-soft); font-size: 17px; margin-bottom: 20px; }
   .form-error {
@@ -354,7 +355,7 @@
     padding: 16px 22px;
     border-bottom: 1px solid var(--line);
   }
-  .cart-head h2 { font-size: 40px; margin: 0; }
+  .cart-head h2 { font-size: 26px; margin: 0; }
   .icon-btn {
     width: 44px; height: 44px;
     display: flex; align-items: center; justify-content: center;
@@ -463,8 +464,8 @@
   @media (max-width: 560px) {
     header { padding: 8px 14px; }
     .brand { font-size: 34px; }
-    header nav { gap: 12px; }
-    header nav a { font-size: 22px; }
+    header nav { gap: 14px; }
+    header nav a { font-size: 14.5px; }
     main > section { padding: 52px 18px; }
     main > section.making, main > section.about { width: calc(100% - 24px); margin: 16px auto; padding-left: 20px; padding-right: 20px; }
     .order-wrap { padding: 26px 20px; border-radius: 22px; }
@@ -472,8 +473,8 @@
   }
   .ship-badge { white-space: nowrap; }
   @media (max-width: 360px) {
-    header nav { gap: 9px; }
-    header nav a { font-size: 20px; }
+    header nav { gap: 10px; }
+    header nav a { font-size: 13.5px; }
     .brand { font-size: 31px; }
     .hero { padding-left: 14px; padding-right: 14px; }
     .ship-badge { font-size: 12px; padding: 5px 12px; gap: 6px; }
