@@ -3,261 +3,344 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nalla — Handmade Crochet</title>
+<title>Nalla | Handmade Crochet from Egypt</title>
+<meta name="description" content="Handmade crochet bags, clothes, blankets and gifts, made to order in Egypt. Choose your favourites and order easily on WhatsApp or by email.">
+<meta name="theme-color" content="#F5F0E1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nalla | Handmade Crochet from Egypt">
+<meta property="og:description" content="Cosy crochet pieces, stitched by hand just for you. Order on WhatsApp or by email.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Cabin:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Cabin:wght@400;600;700&display=swap"></noscript>
 <style>
   :root {
-    --terracotta: #C67B5C;
+    --clay: #964F13;
+    --clay-dark: #7E420F;
+    --terracotta: #A85C3F;
+    --terracotta-dark: #8F4C33;
     --sand: #D4C4A8;
-    --warm-clay: #B5651D;
+    --blush: #EFE3CF;
     --cream: #F5F0E1;
     --ink: #4A3626;
     --ink-soft: #6B4A2E;
-    --border: #E2D5BC;
+    --line: #E2D5BC;
+    --field: #8C7A60;
+    --display: 'Amatic SC', 'Cabin', sans-serif;
+    --body: 'Cabin', system-ui, -apple-system, 'Segoe UI', sans-serif;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden] { display: none !important; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Cabin', sans-serif;
+    font-family: var(--body);
     background: var(--cream);
     color: var(--ink);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3 { font-family: 'Amatic SC', cursive; font-weight: 700; letter-spacing: 0.5px; }
+  body.bag-open { overflow: hidden; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: 0.5px; line-height: 1.1; }
   a { color: inherit; }
   img { max-width: 100%; display: block; }
+  :focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; border-radius: 6px; }
 
+  .skip-link {
+    position: absolute; left: 12px; top: -60px;
+    background: var(--clay); color: #fff;
+    padding: 10px 16px; border-radius: 999px;
+    font-weight: 600; text-decoration: none;
+    z-index: 100;
+  }
+  .skip-link:focus { top: 12px; }
+
+  /* Header */
   header {
     position: sticky; top: 0; z-index: 20;
     background: var(--cream);
-    border-bottom: 1px solid var(--border);
-    padding: 16px 24px;
-    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding: 10px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
   }
-  header .brand { font-size: 34px; color: var(--warm-clay); text-decoration: none; }
-  .ship-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #fff;
-    border: 1px solid var(--border);
-    color: var(--ink-soft);
-    font-size: 13px;
-    font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 999px;
-    margin-bottom: 20px;
-  }
-  header nav { display: flex; gap: 24px; }
-  header nav a {
-    text-decoration: none; font-size: 15px; font-weight: 600; color: var(--ink-soft);
-    padding: 8px 4px;
-  }
-  header nav a:hover { color: var(--warm-clay); }
-
-  .hero {
-    text-align: center;
-    padding: 72px 24px 56px;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  .hero h1 { font-size: clamp(48px, 8vw, 88px); color: var(--warm-clay); line-height: 1; }
-  .hero p { font-size: 18px; color: var(--ink-soft); margin: 16px auto 28px; max-width: 520px; }
-  .btn {
-    display: inline-block;
-    background: var(--warm-clay);
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 14px 32px;
-    border-radius: 999px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 180ms ease, box-shadow 180ms ease;
-  }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(181,101,29,0.25); }
-  .btn.secondary {
-    background: transparent;
-    color: var(--warm-clay);
-    border: 2px solid var(--warm-clay);
-    padding: 12px 30px;
-  }
-
-  section { padding: 56px 24px; max-width: 1120px; margin: 0 auto; }
-  section h2 { font-size: 44px; color: var(--warm-clay); text-align: center; margin-bottom: 8px; }
-  section > p.lead { text-align: center; color: var(--ink-soft); max-width: 560px; margin: 0 auto 40px; }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 28px;
-  }
-  .card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    overflow: hidden;
-    transition: transform 200ms ease, box-shadow 200ms ease;
-  }
-  .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(74,54,38,0.12); }
-  .card img { aspect-ratio: 1 / 1; object-fit: cover; width: 100%; background: var(--sand); }
-  .card-body { padding: 18px 18px 20px; }
-  .card-body h3 { font-size: 26px; color: var(--ink); margin-bottom: 4px; }
-  .card-body .price { color: var(--warm-clay); font-weight: 600; margin-bottom: 12px; }
-  .card-body .desc { font-size: 14px; color: var(--ink-soft); margin-bottom: 10px; min-height: 40px; }
-  .lead-time {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 12.5px; font-weight: 600;
-    color: var(--ink-soft);
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 6px 10px;
-    margin-bottom: 14px;
-  }
-  .lead-time svg { flex-shrink: 0; color: var(--terracotta); }
-
-  .making {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    max-width: 1120px;
-    margin: 0 auto;
-  }
-  .making-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 28px;
-    margin-top: 8px;
-  }
-  .making-step { text-align: center; padding: 0 8px; }
-  .making-step .num {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 40px; height: 40px;
-    border-radius: 999px;
-    background: var(--warm-clay);
-    color: #fff;
+  .brand {
+    font-family: var(--display);
     font-weight: 700;
-    font-size: 16px;
-    margin-bottom: 12px;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--clay);
+    text-decoration: none;
+    letter-spacing: 1px;
   }
-  .making-step h3 { font-size: 24px; color: var(--ink); margin-bottom: 6px; }
-  .making-step p { font-size: 14px; color: var(--ink-soft); }
-  .card-body button {
-    width: 100%;
-    background: var(--terracotta);
-    color: #fff;
-    border: none;
-    border-radius: 999px;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background 180ms ease;
+  header nav { display: flex; align-items: center; gap: 22px; }
+  header nav a {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 25px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: var(--ink-soft);
+    padding: 6px 2px;
+    transition: color 180ms ease;
   }
-  .card-body button:hover { background: var(--warm-clay); }
-
-  .about {
-    background: var(--sand);
-    border-radius: 24px;
-  }
-  .about .lead { color: var(--ink-soft); }
-
-  #order { scroll-margin-top: 90px; }
-  .order-wrap {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 40px;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  .field { margin-bottom: 20px; }
-  .field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; color: var(--ink); }
-  .field input, .field select, .field textarea {
-    width: 100%;
-    font-family: inherit;
-    font-size: 15px;
-    padding: 12px 14px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--cream);
-    color: var(--ink);
-  }
-  .field input:focus, .field select:focus, .field textarea:focus {
-    outline: none;
-    border-color: var(--warm-clay);
-    box-shadow: 0 0 0 3px rgba(181,101,29,0.15);
-  }
-  .field textarea { resize: vertical; min-height: 100px; }
-  .order-note { font-size: 13px; color: var(--ink-soft); margin-top: 14px; text-align: center; }
-  .order-wrap button[type="submit"] { width: 100%; font-size: 16px; padding: 14px; }
-  .order-wrap button[type="submit"]:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
-  .honeypot { position: absolute; left: -9999px; opacity: 0; }
-  .form-success {
-    text-align: center;
-    padding: 24px 8px;
-  }
-  .form-success h3 { font-size: 38px; color: var(--warm-clay); margin-bottom: 8px; }
-  .form-success p { color: var(--ink-soft); }
-  .form-error {
-    background: #FDECEA;
-    border: 1px solid #F5C2BC;
-    color: #8B2F22;
-    font-size: 14px;
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin-bottom: 18px;
-  }
-  .form-error a { color: #8B2F22; font-weight: 600; }
-
-  /* ---- Cart ---- */
+  header nav a:hover { color: var(--clay); }
   .cart-btn {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     width: 44px; height: 44px;
-    background: none;
-    border: none;
-    border-radius: 999px;
+    background: none; border: none; border-radius: 999px;
     cursor: pointer;
     color: var(--ink-soft);
     transition: background 180ms ease, color 180ms ease;
   }
-  .cart-btn:hover { background: var(--sand); color: var(--warm-clay); }
+  .cart-btn:hover { background: var(--blush); color: var(--clay); }
   .cart-count {
-    position: absolute; top: 2px; right: 0;
-    min-width: 19px; height: 19px;
-    background: var(--warm-clay);
-    color: #fff;
-    font-size: 11px; font-weight: 700;
-    line-height: 19px;
-    border-radius: 999px;
-    padding: 0 5px;
+    position: absolute; top: 1px; right: -1px;
+    min-width: 20px; height: 20px;
+    background: var(--clay); color: #fff;
+    font-size: 11px; font-weight: 700; line-height: 20px;
+    border-radius: 999px; padding: 0 5px;
+    text-align: center;
   }
-  .cart-count[hidden] { display: none; }
 
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 72px 24px 60px;
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .ship-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff;
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 14px; font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  .ship-badge .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--clay); }
+  .hero h1 { font-size: clamp(64px, 12vw, 110px); color: var(--clay); line-height: 0.95; }
+  .hero p { font-size: 19px; color: var(--ink-soft); margin: 14px auto 30px; max-width: 520px; }
+  .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 48px;
+    background: var(--clay);
+    color: #fff;
+    font-weight: 600; font-size: 16px;
+    padding: 12px 30px;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 2px solid var(--clay);
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  }
+  .btn:hover { background: var(--clay-dark); border-color: var(--clay-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(126,66,15,0.22); }
+  .btn.ghost { background: transparent; color: var(--clay); }
+  .btn.ghost:hover { background: #fff; color: var(--clay-dark); }
+
+  /* Sections */
+  main > section { padding: 64px 24px; max-width: 1120px; margin: 0 auto; scroll-margin-top: 84px; }
+  section h2 { font-size: clamp(42px, 6vw, 54px); color: var(--clay); text-align: center; margin-bottom: 12px; }
+  .lead { text-align: center; color: var(--ink-soft); font-size: 17px; max-width: 600px; margin: 0 auto 40px; }
+
+  /* Products */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 28px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(74,54,38,0.12); }
+  .card img { aspect-ratio: 1 / 1; object-fit: cover; width: 100%; height: auto; background: var(--sand); }
+  .card-body { padding: 20px 20px 22px; display: flex; flex-direction: column; flex: 1; }
+  .card-body h3 { font-size: 30px; color: var(--ink); }
+  .card-body .price { color: var(--clay); font-weight: 700; font-size: 17px; margin: 2px 0 8px; }
+  .card-body .desc { font-size: 15px; color: var(--ink-soft); margin-bottom: 14px; flex: 1; }
+  .lead-time {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13.5px; font-weight: 600;
+    color: var(--ink-soft);
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 7px 12px;
+    margin-bottom: 16px;
+  }
+  .lead-time svg { flex-shrink: 0; color: var(--clay); }
+  .add-btn {
+    width: 100%;
+    min-height: 46px;
+    background: var(--terracotta);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-weight: 600; font-size: 15px;
+    cursor: pointer;
+    transition: background 180ms ease;
+  }
+  .add-btn:hover { background: var(--terracotta-dark); }
+  .add-btn.added { background: var(--clay-dark); }
+
+  /* How it works */
+  .making { background: #fff; border: 1px solid var(--line); border-radius: 28px; }
+  main > section.making { width: calc(100% - 40px); margin: 24px auto; padding-left: 32px; padding-right: 32px; }
+  .making-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    list-style: none;
+  }
+  @media (max-width: 900px) { .making-steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .making-steps { grid-template-columns: 1fr; } }
+  .making-step { text-align: center; }
+  .making-step .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px;
+    border-radius: 999px;
+    background: var(--clay);
+    color: #fff;
+    font-weight: 700; font-size: 17px;
+    margin-bottom: 12px;
+  }
+  .making-step h3 { font-size: 28px; color: var(--ink); margin-bottom: 6px; }
+  .making-step p { font-size: 15px; color: var(--ink-soft); }
+
+  /* About */
+  main > section.about { width: calc(100% - 40px); background: var(--blush); border-radius: 28px; margin: 24px auto; }
+  .about .lead { margin-bottom: 0; }
+
+  /* Order form */
+  .order-wrap {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 40px;
+    max-width: 660px;
+    margin: 0 auto;
+  }
+  .wa-alt {
+    display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 12px 16px;
+    margin-bottom: 28px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .wa-alt a { color: var(--clay); font-weight: 700; }
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px; color: var(--ink); }
+  .field .req { color: var(--clay); }
+  .field .opt { font-weight: 400; color: var(--ink-soft); font-size: 14px; }
+  .field .hint { font-size: 13.5px; color: var(--ink-soft); margin-top: 5px; }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--field);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--ink);
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--clay);
+    box-shadow: 0 0 0 3px rgba(150,79,19,0.28);
+  }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .bag-preview {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-top: 10px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .bag-preview ul { list-style: none; margin-top: 4px; }
+  .bag-preview li { display: flex; justify-content: space-between; gap: 12px; }
+  .bag-preview .sum { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 6px; font-weight: 700; color: var(--ink); }
+  .order-wrap .btn[type="submit"] { width: 100%; font-size: 17px; }
+  .order-wrap .btn[type="submit"]:disabled { opacity: 0.7; cursor: progress; transform: none; box-shadow: none; }
+  .order-note { font-size: 14px; color: var(--ink-soft); margin-top: 14px; text-align: center; }
+  .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .form-success { text-align: center; padding: 16px 4px; }
+  .form-success h3 { font-size: 44px; color: var(--clay); margin-bottom: 10px; }
+  .form-success h3:focus { outline: none; }
+  .form-success p { color: var(--ink-soft); font-size: 17px; margin-bottom: 20px; }
+  .form-error {
+    background: #FDECEA;
+    border: 1px solid #E8B4AC;
+    color: #7A2A1E;
+    font-size: 15px;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+  .form-error p + p { margin-top: 8px; }
+  .form-error a { color: #7A2A1E; font-weight: 700; }
+
+  /* Policies */
+  main > section.policies { max-width: 780px; }
+  .policy {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .policy summary {
+    cursor: pointer;
+    padding: 16px 20px;
+    font-weight: 600; font-size: 16.5px;
+    color: var(--ink);
+    list-style: none;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    min-height: 52px;
+  }
+  .policy summary::-webkit-details-marker { display: none; }
+  .policy summary::after {
+    content: '';
+    width: 9px; height: 9px;
+    border-right: 2px solid var(--clay);
+    border-bottom: 2px solid var(--clay);
+    transform: rotate(45deg) translateY(-2px);
+    flex-shrink: 0;
+    transition: transform 200ms ease;
+  }
+  .policy[open] summary::after { transform: rotate(-135deg); }
+  .policy summary:hover { color: var(--clay); }
+  .policy-body { padding: 0 20px 18px; font-size: 15.5px; color: var(--ink-soft); }
+  .policy-body p + p, .policy-body ul + p { margin-top: 10px; }
+  .policy-body ul { margin: 8px 0 0 20px; }
+  .policy-body li { margin-bottom: 4px; }
+
+  /* Bag drawer */
   .cart-overlay {
     position: fixed; inset: 0;
-    background: rgba(74,54,38,0.45);
+    background: rgba(74,54,38,0.5);
     z-index: 40;
     opacity: 0;
     transition: opacity 220ms ease;
   }
   .cart-overlay.open { opacity: 1; }
-
   .cart-drawer {
     position: fixed; top: 0; right: 0; bottom: 0;
-    width: min(400px, 100%);
+    width: min(420px, 100%);
     background: var(--cream);
     z-index: 50;
     display: flex; flex-direction: column;
@@ -268,655 +351,818 @@
   .cart-drawer.open { transform: translateX(0); }
   .cart-head {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 22px;
-    border-bottom: 1px solid var(--border);
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--line);
   }
-  .cart-head h2 { font-size: 34px; color: var(--warm-clay); margin: 0; }
-  .cart-close {
+  .cart-head h2 { font-size: 40px; margin: 0; }
+  .icon-btn {
     width: 44px; height: 44px;
     display: flex; align-items: center; justify-content: center;
     background: none; border: none; border-radius: 999px;
     cursor: pointer; color: var(--ink-soft);
     transition: background 180ms ease;
   }
-  .cart-close:hover { background: var(--sand); }
-
-  .cart-items { flex: 1; overflow-y: auto; padding: 8px 22px; }
-  .cart-empty { text-align: center; color: var(--ink-soft); padding: 48px 12px; font-size: 15px; }
+  .icon-btn:hover { background: var(--blush); }
+  .cart-items { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 4px 22px; }
+  .cart-empty { text-align: center; color: var(--ink-soft); padding: 48px 8px; font-size: 16px; }
+  .cart-empty .btn { margin-top: 18px; }
   .cart-row {
-    display: flex; gap: 14px; align-items: center;
+    display: flex; gap: 14px; align-items: flex-start;
     padding: 16px 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
+    list-style: none;
   }
-  .cart-row img {
-    width: 60px; height: 60px;
-    border-radius: 10px;
-    object-fit: cover;
-    background: var(--sand);
-    flex-shrink: 0;
-  }
+  .cart-row img { width: 64px; height: 64px; border-radius: 12px; object-fit: cover; background: var(--sand); flex-shrink: 0; }
   .cart-row-info { flex: 1; min-width: 0; }
-  .cart-row-info .nm { font-weight: 600; font-size: 15px; }
-  .cart-row-info .pr { color: var(--warm-clay); font-size: 14px; font-weight: 600; }
-  .cart-row-info .rl { color: var(--ink-soft); font-size: 12px; }
-  .qty { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-  .qty button {
-    width: 30px; height: 30px;
+  .cart-row-info .nm { font-weight: 700; font-size: 15.5px; }
+  .cart-row-info .pr { color: var(--clay); font-size: 15px; font-weight: 700; }
+  .cart-row-info .rl { color: var(--ink-soft); font-size: 13px; }
+  .qty { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .qty-btn {
+    width: 36px; height: 36px;
     display: flex; align-items: center; justify-content: center;
-    border: 1px solid var(--border);
+    border: 1.5px solid var(--field);
     background: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    color: var(--ink);
-    font-size: 16px;
-    line-height: 1;
+    font-size: 18px; line-height: 1;
     transition: border-color 180ms ease, color 180ms ease;
   }
-  .qty button:hover { border-color: var(--warm-clay); color: var(--warm-clay); }
-  .qty span { min-width: 24px; text-align: center; font-weight: 600; font-size: 14px; }
-  .qty button.cart-remove {
-    width: auto; height: auto;
+  .qty-btn:hover:not(:disabled) { border-color: var(--clay); color: var(--clay); }
+  .qty-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .qty output { min-width: 26px; text-align: center; font-weight: 700; font-size: 15px; }
+  .remove-btn {
     background: none; border: none; cursor: pointer;
-    color: var(--ink-soft); font-size: 12px;
-    text-decoration: underline; padding: 4px;
-    margin-left: 10px;
+    color: var(--ink-soft); font-size: 14px;
+    text-decoration: underline; text-underline-offset: 3px;
+    padding: 8px 6px; margin-left: 8px;
   }
-  .qty button.cart-remove:hover { color: #8B2F22; border-color: transparent; }
-
-  .cart-foot { border-top: 1px solid var(--border); padding: 20px 22px; }
-  .cart-total {
-    display: flex; justify-content: space-between; align-items: baseline;
-    margin-bottom: 16px;
-    font-size: 17px;
-  }
-  .cart-total strong { color: var(--warm-clay); font-size: 21px; }
+  .remove-btn:hover { color: #7A2A1E; }
+  .cart-foot { border-top: 1px solid var(--line); padding: 18px 22px 22px; background: var(--cream); }
+  .cart-total { display: flex; justify-content: space-between; align-items: baseline; font-size: 17px; }
+  .cart-total strong { color: var(--clay); font-size: 23px; }
+  .cart-sub { font-size: 13.5px; color: var(--ink-soft); margin: 2px 0 12px; }
   .cart-lead {
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-    font-size: 13px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 14px; font-weight: 600;
     color: var(--ink-soft);
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 8px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 9px 10px;
     margin-bottom: 14px;
+    text-align: center;
   }
+  .cart-lead svg { color: var(--clay); flex-shrink: 0; }
   .cart-cta {
-    display: flex; align-items: center; justify-content: center; gap: 9px;
-    width: 100%;
-    padding: 14px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; min-height: 50px;
+    padding: 12px;
     border-radius: 999px;
-    border: none;
-    font-family: inherit;
-    font-size: 15px; font-weight: 600;
+    border: 2px solid var(--clay);
+    font-size: 16px; font-weight: 600;
     cursor: pointer;
     text-decoration: none;
     margin-bottom: 10px;
-    transition: transform 180ms ease, box-shadow 180ms ease;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
   }
   .cart-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(74,54,38,0.16); }
-  .cart-cta.wa { background: var(--warm-clay); color: #fff; }
-  .cart-cta.mail {
-    background: #fff;
-    color: var(--warm-clay);
-    border: 2px solid var(--warm-clay);
-  }
-  .cart-hint { font-size: 12px; color: var(--ink-soft); text-align: center; margin-top: 4px; }
+  .cart-cta.wa { background: var(--clay); color: #fff; }
+  .cart-cta.wa:hover { background: var(--clay-dark); border-color: var(--clay-dark); }
+  .cart-cta.mail { background: #fff; color: var(--clay); margin-bottom: 0; }
 
-  .policies { max-width: 760px; }
-  .policy {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    margin-bottom: 12px;
-    overflow: hidden;
-  }
-  .policy summary {
-    cursor: pointer;
-    padding: 16px 20px;
-    font-weight: 600;
-    font-size: 15.5px;
-    color: var(--ink);
-    list-style: none;
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  }
-  .policy summary::-webkit-details-marker { display: none; }
-  .policy summary::after {
-    content: '';
-    width: 9px; height: 9px;
-    border-right: 2px solid var(--warm-clay);
-    border-bottom: 2px solid var(--warm-clay);
-    transform: rotate(45deg);
-    flex-shrink: 0;
-    transition: transform 200ms ease;
-  }
-  .policy[open] summary::after { transform: rotate(-135deg); }
-  .policy summary:hover { color: var(--warm-clay); }
-  .policy .policy-body {
-    padding: 0 20px 18px;
-    font-size: 14.5px;
-    color: var(--ink-soft);
-  }
-  .policy .policy-body p + p { margin-top: 10px; }
-  .policy .policy-body ul { margin: 8px 0 0 18px; }
-  .policy .policy-body li { margin-bottom: 6px; }
-
+  /* Floating WhatsApp */
   .wa-float {
     position: fixed; right: 20px; bottom: 20px;
-    width: 56px; height: 56px;
-    background: var(--warm-clay);
-    border: 2px solid var(--cream);
+    width: 58px; height: 58px;
+    background: var(--clay);
+    border: 3px solid var(--cream);
     border-radius: 999px;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 6px 20px rgba(74,54,38,0.28);
+    box-shadow: 0 6px 20px rgba(74,54,38,0.3);
     z-index: 35;
-    color: var(--cream);
+    color: #fff;
     transition: transform 200ms ease, background 200ms ease;
   }
-  .wa-float:hover { transform: scale(1.07); background: var(--terracotta); }
+  .wa-float:hover { transform: scale(1.07); background: var(--clay-dark); }
 
-  @media (max-width: 480px) {
-    header .brand { font-size: 28px; }
-    header nav { gap: 14px; }
-    header nav a { font-size: 14px; }
-  }
-
+  /* Footer */
   footer {
     text-align: center;
-    padding: 36px 24px 48px;
+    padding: 40px 24px 110px;
     color: var(--ink-soft);
-    font-size: 14px;
+    font-size: 15px;
+    border-top: 1px solid var(--line);
+    margin-top: 24px;
   }
-  footer .brand-small { font-family: 'Amatic SC', cursive; font-size: 24px; color: var(--warm-clay); display: block; margin-bottom: 6px; }
+  footer .brand { font-size: 44px; display: inline-block; margin-bottom: 6px; }
+  .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin: 12px 0; }
+  .footer-links a { text-decoration: none; font-weight: 600; padding: 6px 2px; }
+  .footer-links a:hover { color: var(--clay); text-decoration: underline; text-underline-offset: 3px; }
+  .copyright { font-size: 13.5px; }
+
+  @media (max-width: 560px) {
+    header { padding: 8px 14px; }
+    .brand { font-size: 34px; }
+    header nav { gap: 12px; }
+    header nav a { font-size: 22px; }
+    main > section { padding: 52px 18px; }
+    main > section.making, main > section.about { width: calc(100% - 24px); margin: 16px auto; padding-left: 20px; padding-right: 20px; }
+    .order-wrap { padding: 26px 20px; border-radius: 22px; }
+    .wa-float { width: 54px; height: 54px; right: 14px; bottom: 14px; }
+  }
+  .ship-badge { white-space: nowrap; }
+  @media (max-width: 360px) {
+    header nav { gap: 9px; }
+    header nav a { font-size: 20px; }
+    .brand { font-size: 31px; }
+    .hero { padding-left: 14px; padding-right: 14px; }
+    .ship-badge { font-size: 12px; padding: 5px 12px; gap: 6px; }
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; scroll-behavior: auto !important; }
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
   }
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div id="page">
 <header>
-  <a class="brand" href="#top">Nalla</a>
-  <nav>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
+  <a class="brand" href="#top" aria-label="Nalla, back to top">Nalla</a>
+  <nav aria-label="Main">
+    <a href="#shop">Shop</a>
+    <a href="#story">Our Story</a>
     <a href="#order">Order</a>
-    <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <button class="cart-btn" id="cartBtn" type="button" aria-label="Open your bag" aria-expanded="false" aria-controls="cartDrawer">
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
         <path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
       </svg>
-      <span class="cart-count" id="cartCount" hidden>0</span>
+      <span class="cart-count" id="cartCount" hidden aria-hidden="true">0</span>
     </button>
   </nav>
 </header>
 
-<div id="top" class="hero">
-  <h1>Nalla</h1>
-  <p>Handmade crochet clothes, bags &amp; accessories — made stitch by stitch, one order at a time.</p>
-  <div class="ship-badge">Based in Egypt &nbsp;·&nbsp; Shipping available</div>
-  <br>
-  <a href="#products" class="btn">Browse Products</a>
+<main id="main">
+  <div id="top" class="hero">
+    <span class="ship-badge">Handmade in Egypt <span class="dot" aria-hidden="true"></span> Delivered to your door</span>
+    <h1>Nalla</h1>
+    <p>Cosy crochet clothes, bags and little treasures, stitched by hand just for you.</p>
+    <div class="hero-actions">
+      <a href="#shop" class="btn">Shop the collection</a>
+      <a href="#order" class="btn ghost">Request something custom</a>
+    </div>
+  </div>
+
+  <section id="shop" aria-labelledby="shop-title">
+    <h2 id="shop-title">The collection</h2>
+    <p class="lead">Every piece is made to order, so yours is crocheted fresh just for you. Pick your favourites, pop them in your bag and send us your order on WhatsApp or by email.</p>
+    <div class="grid" id="productGrid"></div>
+    <noscript><p class="lead">Our collection needs JavaScript to show. You can still message us on WhatsApp at +20 103 141 1121 and we'll happily help you order.</p></noscript>
+  </section>
+
+  <section class="making" aria-labelledby="making-title">
+    <h2 id="making-title">Made by hand, just for you</h2>
+    <p class="lead">Nothing here sits on a shelf. We start crocheting the moment you order, which is why little gifts are ready in a few days and bigger pieces like cardigans take a few weeks. We promise it's worth the wait!</p>
+    <ol class="making-steps">
+      <li class="making-step">
+        <span class="num" aria-hidden="true">1</span>
+        <h3>Tell us what you love</h3>
+        <p>Fill your bag or share a custom idea, along with any colours or sizes you have in mind.</p>
+      </li>
+      <li class="making-step">
+        <span class="num" aria-hidden="true">2</span>
+        <h3>We say hello</h3>
+        <p>We'll message you to confirm the price, colours, timing and delivery before we begin.</p>
+      </li>
+      <li class="making-step">
+        <span class="num" aria-hidden="true">3</span>
+        <h3>We get stitching</h3>
+        <p>Your piece is crocheted by hand, stitch by stitch, with lots of love and care.</p>
+      </li>
+      <li class="making-step">
+        <span class="num" aria-hidden="true">4</span>
+        <h3>It comes to you</h3>
+        <p>We wrap it up and send it your way, with tracking so you can follow along.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="story" class="about" aria-labelledby="story-title">
+    <h2 id="story-title">Hello, we're Nalla</h2>
+    <p class="lead">Nalla is a small crochet studio in Egypt with a big love for yarn, colour and making things by hand. Every bag, blanket and little bear is made to order, so you can choose your colours, ask for a different size or add a special touch of your own. We deliver all over Egypt and we're happy to send your order abroad too. Just tell us where you are.</p>
+  </section>
+
+  <section id="order" aria-labelledby="order-title">
+    <h2 id="order-title">Place your order</h2>
+    <p class="lead">Share your details below and we'll be in touch soon to confirm everything with you. Nothing starts until you're happy.</p>
+
+    <div class="order-wrap">
+      <p class="wa-alt">Prefer to chat? <a id="waInline" href="#" target="_blank" rel="noopener">Order with us on WhatsApp</a></p>
+
+      <div id="formError" class="form-error" role="alert" hidden></div>
+
+      <form id="orderForm">
+        <div class="honeypot" aria-hidden="true">
+          <label for="honey">Leave this field empty</label>
+          <input type="text" name="_honey" id="honey" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="name">Your name <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone or WhatsApp number <span class="req" aria-hidden="true">*</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required aria-describedby="phoneHint" placeholder="For example: 010 1234 5678">
+          <p class="hint" id="phoneHint">So we can confirm your order and arrange delivery.</p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span class="opt">(optional)</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" aria-describedby="emailHint">
+          <p class="hint" id="emailHint">Add it if you'd also like to hear from us by email.</p>
+        </div>
+
+        <div class="field">
+          <label for="product">What would you like? <span class="req" aria-hidden="true">*</span></label>
+          <select id="product" name="product" required>
+            <option value="" disabled selected>Choose a piece</option>
+          </select>
+          <div class="bag-preview" id="bagPreview" hidden></div>
+        </div>
+
+        <div class="field">
+          <label for="details">Colours, sizes and special requests <span class="opt">(optional)</span></label>
+          <textarea id="details" name="details" placeholder="For example: mustard yellow, medium size, and I'd love it before the 20th"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="address">Delivery address <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="address" name="address" autocomplete="street-address" required placeholder="Street, area and city. For example: 12 Road 9, Maadi, Cairo"></textarea>
+        </div>
+
+        <button type="submit" class="btn" id="submitBtn">Send my order</button>
+        <p class="order-note">Fields marked * are needed. We only use your details to look after your order.</p>
+      </form>
+
+      <div id="formSuccess" class="form-success" hidden>
+        <h3 tabindex="-1" id="successTitle">Thank you, we've got it!</h3>
+        <p>Your order is on its way to us. We'll be in touch very soon to confirm the details, and we can't wait to start making it for you.</p>
+        <button type="button" class="btn ghost" id="anotherOrder">Place another order</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="good-to-know" class="policies" aria-labelledby="policies-title">
+    <h2 id="policies-title">Good to know</h2>
+    <p class="lead">Because every piece is made just for you, here's how ordering, changes and returns work.</p>
+
+    <details class="policy">
+      <summary>Made to order and timing</summary>
+      <div class="policy-body">
+        <p>We don't keep ready-made stock. We start making your piece once you've confirmed your order, and the making time on each product is our best estimate rather than a promise.</p>
+        <p>Busy seasons, bigger sizes or special colour requests can add a little time. We'll always give you an honest estimate before you commit, and let you know straight away if anything changes. Delivery time comes after making time.</p>
+      </div>
+    </details>
+
+    <details class="policy">
+      <summary>Changes and cancellations</summary>
+      <div class="policy-body">
+        <p>Changed your mind about a colour or size? No problem at all. You can change or cancel your order for free any time before we start making it. Just send us a message.</p>
+        <p>Once we've started, the yarn has already been cut and worked, so we may not be able to cancel. We'll always talk it through with you and find the fairest way forward.</p>
+      </div>
+    </details>
+
+    <details class="policy">
+      <summary>Returns and refunds</summary>
+      <div class="policy-body">
+        <p>Each piece is made especially for you, so we can't accept returns for a change of mind. If something isn't right, we'll repair it, replace it or refund you when:</p>
+        <ul>
+          <li>it arrives damaged or faulty</li>
+          <li>it's noticeably different from what we agreed</li>
+          <li>we sent you the wrong item</li>
+        </ul>
+        <p>Please message us within 48 hours of delivery with a few photos and we'll put it right. If a return is needed because of our mistake, we'll cover the return delivery.</p>
+      </div>
+    </details>
+
+    <details class="policy">
+      <summary>Sizing and handmade charm</summary>
+      <div class="policy-body">
+        <p>For clothes, we'll confirm your measurements with you before we begin, so please check them carefully. A piece made to the measurements you gave us isn't counted as faulty.</p>
+        <p>Every stitch is made by hand, so tiny differences in size, texture and colour are completely normal and part of what makes your piece one of a kind. Yarn colours can also look slightly different in person than on screen.</p>
+      </div>
+    </details>
+
+    <details class="policy">
+      <summary>Payment</summary>
+      <div class="policy-body">
+        <p>We'll confirm the full price, including delivery, before we start. For custom or larger pieces we may ask for a deposit to cover materials, with the rest due before your order is sent.</p>
+        <p>Because a deposit pays for yarn we've already bought and used, it usually can't be refunded once making has begun.</p>
+      </div>
+    </details>
+
+    <details class="policy">
+      <summary>Delivery</summary>
+      <div class="policy-body">
+        <p>We deliver all over Egypt and we're happy to send orders abroad on request. Delivery costs depend on where you are, and we'll confirm them with you before your order is final.</p>
+        <p>Once your parcel is with the courier, we'll share the tracking details and help follow up if anything goes astray. For orders outside Egypt, any customs or import fees are paid by the customer.</p>
+      </div>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <a class="brand" href="#top">Nalla</a>
+  <p>Handmade with love in Egypt</p>
+  <nav class="footer-links" aria-label="Footer">
+    <a href="#shop">Shop</a>
+    <a href="#story">Our Story</a>
+    <a href="#order">Order</a>
+    <a href="#good-to-know">Good to know</a>
+    <a id="waFooter" href="#" target="_blank" rel="noopener">WhatsApp us</a>
+  </nav>
+  <p class="copyright">&copy; <span id="year">2026</span> Nalla. All rights reserved.</p>
+</footer>
+
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat with Nalla on WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z"/>
+    <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/>
+  </svg>
+</a>
 </div>
 
-<section id="products">
-  <h2>Our Products</h2>
-  <p class="lead">Every piece is handmade to order. Add what you love to your cart, then send us your request by WhatsApp or email.</p>
-  <div class="grid">
+<div class="cart-overlay" id="cartOverlay" hidden></div>
 
-    <div class="card">
-      <img src="images/product-1.svg" alt="Granny Square Tote Bag">
-      <div class="card-body">
-        <h3>Granny Square Tote</h3>
-        <div class="price">1,200 EGP</div>
-        <div class="desc">A roomy everyday tote in a classic granny-square pattern.</div>
-        <div class="lead-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Made to order &middot; ready in 7-10 days</div>
-        <button onclick="addToCart('Granny Square Tote', 1200, 'images/product-1.svg', '7-10 days', 10)">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/product-2.svg" alt="Chunky Knit Scarf">
-      <div class="card-body">
-        <h3>Chunky Knit Scarf</h3>
-        <div class="price">900 EGP</div>
-        <div class="desc">Soft, oversized, and warm — made with chunky yarn.</div>
-        <div class="lead-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Made to order &middot; ready in 5-7 days</div>
-        <button onclick="addToCart('Chunky Knit Scarf', 900, 'images/product-2.svg', '5-7 days', 7)">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/product-3.svg" alt="Amigurumi Bear">
-      <div class="card-body">
-        <h3>Amigurumi Bear</h3>
-        <div class="price">700 EGP</div>
-        <div class="desc">A tiny handmade friend, perfect as a gift.</div>
-        <div class="lead-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Made to order &middot; ready in 3-5 days</div>
-        <button onclick="addToCart('Amigurumi Bear', 700, 'images/product-3.svg', '3-5 days', 5)">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/product-4.svg" alt="Cropped Cardigan">
-      <div class="card-body">
-        <h3>Cropped Cardigan</h3>
-        <div class="price">2,000 EGP</div>
-        <div class="desc">A lightweight cardigan for layering, made to size.</div>
-        <div class="lead-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Made to order &middot; ready in 2-3 weeks</div>
-        <button onclick="addToCart('Cropped Cardigan', 2000, 'images/product-4.svg', '2-3 weeks', 21)">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/product-5.svg" alt="Market Basket">
-      <div class="card-body">
-        <h3>Market Basket</h3>
-        <div class="price">1,100 EGP</div>
-        <div class="desc">Sturdy woven basket, great for market runs or storage.</div>
-        <div class="lead-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Made to order &middot; ready in 7-10 days</div>
-        <button onclick="addToCart('Market Basket', 1100, 'images/product-5.svg', '7-10 days', 10)">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/product-6.svg" alt="Baby Blanket">
-      <div class="card-body">
-        <h3>Baby Blanket</h3>
-        <div class="price">1,400 EGP</div>
-        <div class="desc">Soft and cozy, made with baby-safe yarn.</div>
-        <div class="lead-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Made to order &middot; ready in 10-14 days</div>
-        <button onclick="addToCart('Baby Blanket', 1400, 'images/product-6.svg', '10-14 days', 14)">Add to Cart</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="making">
-  <h2>Made By Hand, Just For You</h2>
-  <p class="lead">Nothing here sits on a shelf waiting. Every piece is crocheted from scratch once you order, which is why timing depends on what you choose — a small amigurumi takes a few days, while a full cardigan takes a few weeks.</p>
-  <div class="making-steps">
-    <div class="making-step">
-      <span class="num">1</span>
-      <h3>You Send a Request</h3>
-      <p>Tell us what you'd like, along with any colors or sizes you have in mind.</p>
-    </div>
-    <div class="making-step">
-      <span class="num">2</span>
-      <h3>We Confirm Details</h3>
-      <p>We'll reply with the final price, a making time, and shipping cost before anything starts.</p>
-    </div>
-    <div class="making-step">
-      <span class="num">3</span>
-      <h3>We Make It</h3>
-      <p>Your piece is crocheted by hand. Larger or more detailed items simply take longer.</p>
-    </div>
-    <div class="making-step">
-      <span class="num">4</span>
-      <h3>We Ship It</h3>
-      <p>Once it's ready we ship it out and send you the tracking details.</p>
-    </div>
-  </div>
-</section>
-
-<section id="about" class="about">
-  <h2>About Nalla</h2>
-  <p class="lead">Nalla is a small handmade crochet studio based in Egypt. Every item is made to order with care — colors, sizes, and small details can be customized on request. We ship across Egypt, and internationally on request — just tell us where and we'll work out the details. Reach out below to get started.</p>
-</section>
-
-<section id="order">
-  <h2>Request an Order</h2>
-  <p class="lead">Tell us what you'd like and we'll get back to you by email with pricing and timing.</p>
-
-  <div class="order-wrap">
-    <div id="formError" class="form-error" hidden></div>
-
-    <form id="orderForm" onsubmit="return submitOrder(event)">
-      <input type="text" name="_honey" id="honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="field">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" required>
-      </div>
-      <div class="field">
-        <label for="email">Your Email</label>
-        <input type="email" id="email" required>
-      </div>
-      <div class="field">
-        <label for="product">Product</label>
-        <select id="product">
-          <option>Granny Square Tote</option>
-          <option>Chunky Knit Scarf</option>
-          <option>Amigurumi Bear</option>
-          <option>Cropped Cardigan</option>
-          <option>Market Basket</option>
-          <option>Baby Blanket</option>
-          <option>Multiple items (see details)</option>
-          <option>Something else / custom request</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="details">Details (color, size, quantity, etc.)</label>
-        <textarea id="details" placeholder="e.g. mustard yellow, size medium, need it by..."></textarea>
-      </div>
-      <div class="field">
-        <label for="shipping">Shipping Address / City, Country</label>
-        <textarea id="shipping" placeholder="e.g. Maadi, Cairo, Egypt" required></textarea>
-      </div>
-      <button type="submit" class="btn" id="submitBtn">Send Order Request</button>
-      <p class="order-note">We'll reply to the email address you provide. Your details are only used to process your request.</p>
-    </form>
-
-    <div id="formSuccess" class="form-success" hidden>
-      <h3>Request Sent</h3>
-      <p>Thank you — we've received your request and will reply by email shortly.</p>
-    </div>
-  </div>
-</section>
-
-<section id="policies" class="policies">
-  <h2>Ordering &amp; Returns</h2>
-  <p class="lead">Because everything is made by hand after you order, our policies work a little differently to a regular shop.</p>
-
-  <details class="policy">
-    <summary>Made to order &amp; timing</summary>
-    <div class="policy-body">
-      <p>We don't hold ready-made stock. Work on your piece begins only after you confirm your order, and the making time shown on each product is an estimate, not a guarantee.</p>
-      <p>Busy periods, unusual sizes, or custom color requests can add time. We'll always give you a realistic estimate before you commit, and let you know as early as possible if anything changes.</p>
-      <p>Making time is separate from shipping time.</p>
-    </div>
-  </details>
-
-  <details class="policy">
-    <summary>Changes &amp; cancellations</summary>
-    <div class="policy-body">
-      <p>You can change or cancel your order free of charge any time before we start making it — just message us.</p>
-      <p>Once work has begun, we may not be able to cancel, since materials have been cut and worked. If we've already started, we'll discuss what's possible and any costs already incurred.</p>
-    </div>
-  </details>
-
-  <details class="policy">
-    <summary>Returns &amp; refunds</summary>
-    <div class="policy-body">
-      <p>Each piece is made specifically for you, so we can't accept returns simply due to a change of mind.</p>
-      <p>We will repair, replace, or refund an item if:</p>
-      <ul>
-        <li>it arrives damaged or faulty</li>
-        <li>it's materially different from what was agreed</li>
-        <li>the wrong item was sent</li>
-      </ul>
-      <p>Contact us within 48 hours of delivery with photos and we'll sort it out. Where a return is required, we'll cover return shipping if the fault is ours.</p>
-    </div>
-  </details>
-
-  <details class="policy">
-    <summary>Sizing &amp; handmade variation</summary>
-    <div class="policy-body">
-      <p>For wearables we confirm measurements with you before starting, so please double-check them carefully — a garment made to the measurements you supplied isn't considered faulty if those measurements were wrong.</p>
-      <p>Because every stitch is worked by hand, small variations in size, texture, and color are normal and part of the character of handmade work. Yarn dye lots can also vary slightly from the photos.</p>
-    </div>
-  </details>
-
-  <details class="policy">
-    <summary>Payment</summary>
-    <div class="policy-body">
-      <p>We'll confirm the full price, including shipping, before anything begins. For custom and larger pieces we may ask for a deposit up front to cover materials, with the balance due before shipping.</p>
-      <p>Deposits cover materials already bought and worked, so they're generally non-refundable once making has started.</p>
-    </div>
-  </details>
-
-  <details class="policy">
-    <summary>Shipping</summary>
-    <div class="policy-body">
-      <p>We ship across Egypt, and internationally on request. Shipping cost depends on your location and is confirmed with you before your order is finalised.</p>
-      <p>Once a parcel is handed to the courier, delivery timing is in their hands. We'll share tracking details so you can follow it, and we'll help chase anything that goes astray.</p>
-      <p>Any customs duties or import charges on international orders are the customer's responsibility.</p>
-    </div>
-  </details>
-</section>
-
-<div class="cart-overlay" id="cartOverlay" onclick="closeCart()" hidden></div>
-
-<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Your cart" hidden>
+<div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" hidden>
   <div class="cart-head">
-    <h2>Your Cart</h2>
-    <button class="cart-close" onclick="closeCart()" aria-label="Close cart">
+    <h2 id="cartTitle">Your bag</h2>
+    <button class="icon-btn" id="cartClose" type="button" aria-label="Close your bag">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
         <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
       </svg>
     </button>
   </div>
 
-  <div class="cart-items" id="cartItems"></div>
+  <ul class="cart-items" id="cartItems"></ul>
+  <p class="sr-status" id="bagStatus" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);"></p>
 
   <div class="cart-foot" id="cartFoot" hidden>
     <div class="cart-total"><span>Total</span><strong id="cartTotal">0 EGP</strong></div>
+    <p class="cart-sub">Plus delivery, which we'll confirm with you.</p>
     <p class="cart-lead" id="cartLead"></p>
     <a class="cart-cta wa" id="cartWa" href="#" target="_blank" rel="noopener">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z"/>
         <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/>
       </svg>
-      Order via WhatsApp
+      Order on WhatsApp
     </a>
-    <button class="cart-cta mail" onclick="cartToEmail()">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <button class="cart-cta mail" id="cartMail" type="button">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 5L2 7"/>
       </svg>
-      Order via Email
+      Order with the form
     </button>
-    <p class="cart-hint">Prices exclude shipping. We'll confirm the total with you.</p>
   </div>
-</aside>
-
-<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z"/>
-    <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/>
-  </svg>
-</a>
-
-<footer>
-  <span class="brand-small">Nalla</span>
-  Based in Egypt &middot; Shipping available &middot; Handmade with love.<br>
-  <a href="#policies">Ordering &amp; Returns</a><br>
-  &copy; <span id="year"></span> Nalla.
-</footer>
+</div>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+(function () {
+  // Edit products here. Everything on the page (cards, prices, form, bag) reads from this list.
+  const PRODUCTS = [
+    { id: 'granny-tote', name: 'Granny Square Tote', price: 1200, lead: '7 to 10 days', leadDays: 10, img: 'images/product-1.svg',
+      desc: 'A roomy everyday tote made from classic granny squares, with space for all your bits and pieces.' },
+    { id: 'chunky-scarf', name: 'Chunky Crochet Scarf', price: 900, lead: '5 to 7 days', leadDays: 7, img: 'images/product-2.svg',
+      desc: "Thick, soft and wonderfully warm. The scarf you'll reach for on every chilly evening." },
+    { id: 'amigurumi-bear', name: 'Amigurumi Bear', price: 700, lead: '3 to 5 days', leadDays: 5, img: 'images/product-3.svg',
+      desc: 'A little crocheted bear with a big personality. A sweet gift for a new baby or anyone who needs a hug.' },
+    { id: 'cropped-cardigan', name: 'Cropped Cardigan', price: 2000, lead: '2 to 3 weeks', leadDays: 21, img: 'images/product-4.svg',
+      desc: 'A light, breezy cardigan made to your measurements, so it fits just the way you like.' },
+    { id: 'market-basket', name: 'Market Basket', price: 1100, lead: '7 to 10 days', leadDays: 10, img: 'images/product-5.svg',
+      desc: 'A sturdy, pretty basket for market mornings, fruit on the counter or tidy shelves at home.' },
+    { id: 'baby-blanket', name: 'Baby Blanket', price: 1400, lead: '10 to 14 days', leadDays: 14, img: 'images/product-6.svg',
+      desc: 'Soft, snuggly and made with gentle baby-safe yarn. A keepsake to treasure for years.' }
+  ];
 
   // Assembled at runtime so the raw address isn't sitting in the page source for scrapers.
   const ORDER_EMAIL = ['teegroovess', 'gmail.com'].join('@');
-
   const WHATSAPP_NUMBER = '201031411121';
+  const STORAGE_KEY = 'nalla_bag_v2';
+  const MAX_QTY = 10;
 
-  let cart = [];
-  try { cart = JSON.parse(localStorage.getItem('nalla_cart')) || []; } catch (e) { cart = []; }
-  // Carts saved before lead times existed lack these fields; drop them rather than render blanks.
-  cart = cart.filter(i => i && i.name && typeof i.price === 'number' && typeof i.leadDays === 'number');
-
+  const $ = id => document.getElementById(id);
+  const byId = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
   const egp = n => n.toLocaleString('en-US') + ' EGP';
+  const waLink = text => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  const clockSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>';
 
-  function saveCart() {
-    try { localStorage.setItem('nalla_cart', JSON.stringify(cart)); } catch (e) {}
+  function el(tag, props, children) {
+    const node = document.createElement(tag);
+    Object.entries(props || {}).forEach(([k, v]) => {
+      if (k === 'text') node.textContent = v;
+      else if (k === 'class') node.className = v;
+      else node.setAttribute(k, v);
+    });
+    (children || []).forEach(c => node.append(c));
+    return node;
   }
 
-  function addToCart(name, price, img, lead, leadDays) {
-    const found = cart.find(i => i.name === name);
-    if (found) found.qty++;
-    else cart.push({ name, price, img, lead, leadDays, qty: 1 });
-    saveCart();
-    renderCart();
-    openCart();
+  /* Bag state */
+  let bag = loadBag();
+
+  function loadBag() {
+    let raw;
+    try { raw = JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (e) { raw = null; }
+    if (!Array.isArray(raw)) return [];
+    return raw
+      .filter(i => i && byId[i.id] && Number.isInteger(i.qty) && i.qty > 0)
+      .map(i => ({ id: i.id, qty: Math.min(i.qty, MAX_QTY) }));
+  }
+  function saveBag() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(bag)); } catch (e) {}
+  }
+  const bagCount = () => bag.reduce((n, i) => n + i.qty, 0);
+  const bagTotal = () => bag.reduce((s, i) => s + byId[i.id].price * i.qty, 0);
+  const itemsLabel = n => n === 1 ? '1 item' : `${n} items`;
+
+  function slowestLead() {
+    return bag.reduce((a, i) => (!a || byId[i.id].leadDays > a.leadDays ? byId[i.id] : a), null);
   }
 
-  function changeQty(name, delta) {
-    const item = cart.find(i => i.name === name);
+  function bagLines() {
+    return bag.map(i => {
+      const p = byId[i.id];
+      return `• ${i.qty} × ${p.name}: ${egp(p.price * i.qty)} (ready in ${p.lead})`;
+    });
+  }
+
+  function bagSummaryText() {
+    const slow = slowestLead();
+    return bagLines().join('\n') +
+      `\n\nTotal: ${egp(bagTotal())} plus delivery` +
+      (slow ? `\nEstimated making time: about ${slow.lead}` : '');
+  }
+
+  function addToBag(id) {
+    const item = bag.find(i => i.id === id);
+    if (item) item.qty = Math.min(item.qty + 1, MAX_QTY);
+    else bag.push({ id, qty: 1 });
+    saveBag();
+    renderBag();
+    announce(`${byId[id].name} added. Your bag has ${itemsLabel(bagCount())}.`);
+  }
+
+  function changeQty(id, delta) {
+    const item = bag.find(i => i.id === id);
     if (!item) return;
-    item.qty += delta;
-    if (item.qty < 1) cart = cart.filter(i => i.name !== name);
-    saveCart();
-    renderCart();
+    item.qty = Math.min(item.qty + delta, MAX_QTY);
+    if (item.qty < 1) bag = bag.filter(i => i.id !== id);
+    saveBag();
+    renderBag({ id, action: delta > 0 ? 'inc' : 'dec' });
+    announce(item.qty < 1 ? `${byId[id].name} removed.` : `${byId[id].name}, quantity ${item.qty}.`);
   }
 
-  function removeItem(name) {
-    cart = cart.filter(i => i.name !== name);
-    saveCart();
-    renderCart();
+  function removeItem(id) {
+    bag = bag.filter(i => i.id !== id);
+    saveBag();
+    renderBag();
+    announce(`${byId[id].name} removed from your bag.`);
+    $('cartClose').focus();
   }
 
-  function cartTotal() {
-    return cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+  function announce(msg) {
+    const s = $('bagStatus');
+    s.textContent = '';
+    setTimeout(() => { s.textContent = msg; }, 50);
   }
 
-  function longestLead() {
-    if (!cart.length) return null;
-    return cart.reduce((a, b) => (b.leadDays > a.leadDays ? b : a));
+  /* Rendering */
+  function renderProducts() {
+    const grid = $('productGrid');
+    PRODUCTS.forEach((p, idx) => {
+      const lead = el('p', { class: 'lead-time' });
+      lead.innerHTML = clockSvg;
+      lead.append(`Made to order · Ready in ${p.lead}`);
+      const btn = el('button', { class: 'add-btn', type: 'button', 'data-id': p.id, text: 'Add to bag' });
+      grid.append(el('article', { class: 'card' }, [
+        el('img', { src: p.img, alt: p.name, width: '400', height: '400', loading: idx < 3 ? 'eager' : 'lazy', decoding: 'async' }),
+        el('div', { class: 'card-body' }, [
+          el('h3', { text: p.name }),
+          el('p', { class: 'price', text: egp(p.price) }),
+          el('p', { class: 'desc', text: p.desc }),
+          lead,
+          btn
+        ])
+      ]));
+    });
+    grid.addEventListener('click', e => {
+      const btn = e.target.closest('.add-btn');
+      if (!btn) return;
+      addToBag(btn.dataset.id);
+      btn.classList.add('added');
+      btn.textContent = 'Added to your bag';
+      setTimeout(() => { btn.classList.remove('added'); btn.textContent = 'Add to bag'; }, 1600);
+      openBag(btn);
+    });
   }
 
-  function cartSummary() {
-    const slowest = longestLead();
-    return cart.map(i => `- ${i.name} x${i.qty} — ${egp(i.price * i.qty)} (ready in ${i.lead})`).join('\n') +
-           `\n\nTotal: ${egp(cartTotal())}` +
-           (slowest ? `\nEstimated making time: ${slowest.lead}` : '');
+  function renderSelect() {
+    const select = $('product');
+    PRODUCTS.forEach(p => select.append(el('option', { value: p.id, text: `${p.name} (${egp(p.price)})` })));
+    select.append(el('option', { value: 'bag', id: 'bagOption', text: 'Everything in my bag' }));
+    select.append(el('option', { value: 'custom', text: 'Something custom' }));
+    select.addEventListener('change', renderBagPreview);
   }
 
-  function renderCart() {
-    const count = cart.reduce((n, i) => n + i.qty, 0);
-    const badge = document.getElementById('cartCount');
+  function renderBagPreview() {
+    const box = $('bagPreview');
+    const option = $('bagOption');
+    const count = bagCount();
+    option.disabled = count === 0;
+    option.textContent = count ? `Everything in my bag (${itemsLabel(count)})` : 'Everything in my bag (empty)';
+    if (!count && $('product').value === 'bag') $('product').value = '';
+    if ($('product').value !== 'bag') { box.hidden = true; return; }
+    const list = el('ul', {}, bag.map(i => {
+      const p = byId[i.id];
+      return el('li', {}, [el('span', { text: `${i.qty} × ${p.name}` }), el('span', { text: egp(p.price * i.qty) })]);
+    }));
+    list.append(el('li', { class: 'sum' }, [el('span', { text: 'Total, plus delivery' }), el('span', { text: egp(bagTotal()) })]));
+    box.replaceChildren(el('span', { text: "Here's what's in your bag:" }), list);
+    box.hidden = false;
+  }
+
+  function renderBag(refocus) {
+    const count = bagCount();
+    const badge = $('cartCount');
     badge.textContent = count;
     badge.hidden = count === 0;
+    $('cartBtn').setAttribute('aria-label', count ? `Open your bag, ${itemsLabel(count)}` : 'Open your bag');
 
-    const box = document.getElementById('cartItems');
-    const foot = document.getElementById('cartFoot');
+    const list = $('cartItems');
+    const foot = $('cartFoot');
 
-    if (!cart.length) {
-      box.innerHTML = '<p class="cart-empty">Your cart is empty.<br>Browse our products to get started.</p>';
+    if (!count) {
+      const browse = el('a', { class: 'btn', href: '#shop', text: 'Browse the collection' });
+      browse.addEventListener('click', closeBag);
+      list.replaceChildren(el('li', { class: 'cart-empty' }, [
+        el('p', { text: 'Your bag is empty for now. Take a look around and find something you love.' }),
+        browse
+      ]));
       foot.hidden = true;
+      renderBagPreview();
       return;
     }
 
-    box.innerHTML = cart.map(i => `
-      <div class="cart-row">
-        <img src="${i.img}" alt="">
-        <div class="cart-row-info">
-          <div class="nm">${i.name}</div>
-          <div class="pr">${egp(i.price * i.qty)}</div>
-          <div class="rl">Ready in ${i.lead}</div>
-          <div class="qty">
-            <button onclick="changeQty('${i.name.replace(/'/g, "\\'")}', -1)" aria-label="Decrease quantity of ${i.name}">&minus;</button>
-            <span>${i.qty}</span>
-            <button onclick="changeQty('${i.name.replace(/'/g, "\\'")}', 1)" aria-label="Increase quantity of ${i.name}">+</button>
-            <button class="cart-remove" onclick="removeItem('${i.name.replace(/'/g, "\\'")}')">Remove</button>
-          </div>
-        </div>
-      </div>
-    `).join('');
+    list.replaceChildren(...bag.map(i => {
+      const p = byId[i.id];
+      const dec = el('button', { class: 'qty-btn', type: 'button', 'data-action': 'dec', 'data-id': p.id, 'aria-label': `One less ${p.name}`, text: '−' });
+      const inc = el('button', { class: 'qty-btn', type: 'button', 'data-action': 'inc', 'data-id': p.id, 'aria-label': `One more ${p.name}`, text: '+' });
+      if (i.qty >= MAX_QTY) { inc.disabled = true; inc.title = `For more than ${MAX_QTY}, message us on WhatsApp`; }
+      return el('li', { class: 'cart-row' }, [
+        el('img', { src: p.img, alt: '', width: '64', height: '64' }),
+        el('div', { class: 'cart-row-info' }, [
+          el('div', { class: 'nm', text: p.name }),
+          el('div', { class: 'pr', text: egp(p.price * i.qty) }),
+          el('div', { class: 'rl', text: `Ready in ${p.lead}` }),
+          el('div', { class: 'qty' }, [
+            dec,
+            el('output', { 'aria-label': `Quantity of ${p.name}`, text: String(i.qty) }),
+            inc,
+            el('button', { class: 'remove-btn', type: 'button', 'data-action': 'remove', 'data-id': p.id, 'aria-label': `Remove ${p.name} from your bag`, text: 'Remove' })
+          ])
+        ])
+      ]);
+    }));
 
     foot.hidden = false;
-    document.getElementById('cartTotal').textContent = egp(cartTotal());
+    $('cartTotal').textContent = egp(bagTotal());
+    const slow = slowestLead();
+    $('cartLead').innerHTML = clockSvg;
+    $('cartLead').append(count > 1
+      ? `Made to order, about ${slow.lead}. We'll confirm the exact timing.`
+      : `Made to order, ready in about ${slow.lead}`);
+    $('cartWa').href = waLink(`Hi Nalla! I'd love to order:\n\n${bagSummaryText()}\n\nMy name:\nMy delivery area:`);
 
-    const slowest = longestLead();
-    document.getElementById('cartLead').textContent =
-      `Estimated making time: ${slowest.lead}`;
+    renderBagPreview();
 
-    const msg = `Hi Nalla! I'd like to order:\n\n${cartSummary()}`;
-    document.getElementById('cartWa').href =
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    if (refocus) {
+      const target = list.querySelector(`[data-id="${refocus.id}"][data-action="${refocus.action}"]`);
+      if (target && !target.disabled) target.focus();
+      else $('cartClose').focus();
+    }
   }
 
-  function openCart() {
-    document.getElementById('cartOverlay').hidden = false;
-    document.getElementById('cartDrawer').hidden = false;
-    requestAnimationFrame(() => {
-      document.getElementById('cartOverlay').classList.add('open');
-      document.getElementById('cartDrawer').classList.add('open');
-    });
-    document.body.style.overflow = 'hidden';
+  /* Drawer */
+  let closeTimer = null;
+  let lastOpener = null;
+
+  function openBag(opener) {
+    clearTimeout(closeTimer);
+    const drawer = $('cartDrawer');
+    const overlay = $('cartOverlay');
+    if (!drawer.hidden && drawer.classList.contains('open')) return;
+    lastOpener = opener || document.activeElement;
+    overlay.hidden = false;
+    drawer.hidden = false;
+    $('page').inert = true;
+    document.body.classList.add('bag-open');
+    $('cartBtn').setAttribute('aria-expanded', 'true');
+    // Force a reflow so the slide-in transition starts from the closed position.
+    void drawer.offsetWidth;
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+    $('cartClose').focus({ preventScroll: true });
   }
 
-  function closeCart() {
-    const overlay = document.getElementById('cartOverlay');
-    const drawer = document.getElementById('cartDrawer');
+  function closeBag() {
+    const drawer = $('cartDrawer');
+    if (drawer.hidden) return;
+    const overlay = $('cartOverlay');
     overlay.classList.remove('open');
     drawer.classList.remove('open');
-    document.body.style.overflow = '';
-    setTimeout(() => { overlay.hidden = true; drawer.hidden = true; }, 260);
+    $('page').inert = false;
+    document.body.classList.remove('bag-open');
+    $('cartBtn').setAttribute('aria-expanded', 'false');
+    clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => { overlay.hidden = true; drawer.hidden = true; }, 260);
+    if (lastOpener && document.contains(lastOpener)) lastOpener.focus({ preventScroll: true });
   }
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && !document.getElementById('cartDrawer').hidden) closeCart();
-  });
-
-  function cartToEmail() {
-    document.getElementById('product').value = 'Multiple items (see details)';
-    document.getElementById('details').value = cartSummary();
-    closeCart();
-    document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => document.getElementById('name').focus(), 400);
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const focusables = [...$('cartDrawer').querySelectorAll('a[href], button:not([disabled])')].filter(n => n.offsetParent !== null);
+    if (!focusables.length) return;
+    const first = focusables[0], last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
 
-  document.getElementById('waFloat').href =
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi Nalla! I'd like to ask about your crochet products.")}`;
+  /* Order form */
+  let sending = false;
 
-  renderCart();
+  function orderChoiceLabel(value) {
+    if (value === 'bag') return `Everything in my bag (${itemsLabel(bagCount())})`;
+    if (value === 'custom') return 'Something custom';
+    return byId[value] ? `${byId[value].name} (${egp(byId[value].price)})` : value;
+  }
+
+  function orderAsText(d) {
+    return [
+      "Hi Nalla! I'd love to place an order.",
+      '',
+      `Name: ${d.name}`,
+      `Phone: ${d.phone}`,
+      d.email ? `Email: ${d.email}` : null,
+      `Order: ${d.orderLabel}`,
+      d.bag ? `\n${d.bag}\n` : null,
+      `Colours, sizes and requests: ${d.details || 'None'}`,
+      `Delivery address: ${d.address}`
+    ].filter(l => l !== null).join('\n');
+  }
+
+  function showError(order) {
+    const box = $('formError');
+    const wa = el('a', { href: waLink(order), target: '_blank', rel: 'noopener', text: 'send it on WhatsApp' });
+    const mail = el('a', {
+      href: `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent('My Nalla order')}&body=${encodeURIComponent(order)}`,
+      text: 'send it by email'
+    });
+    box.replaceChildren(
+      el('p', { text: "Oh no, we couldn't send your order just now. Your details are still here, so please try again in a moment." }),
+      el('p', {}, ['Or ', wa, ' or ', mail, ' and it will reach us straight away.'])
+    );
+    box.hidden = false;
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function showSuccess() {
+    $('orderForm').hidden = true;
+    $('formError').hidden = true;
+    $('formSuccess').hidden = false;
+    $('successTitle').focus({ preventScroll: true });
+    $('order').scrollIntoView({ behavior: 'smooth' });
+  }
 
   async function submitOrder(e) {
     e.preventDefault();
+    if (sending) return;
+    const form = $('orderForm');
+    if (!form.checkValidity()) { form.reportValidity(); return; }
 
-    const btn = document.getElementById('submitBtn');
-    const errorBox = document.getElementById('formError');
+    const choice = $('product').value;
+    const d = {
+      name: $('name').value.trim(),
+      phone: $('phone').value.trim(),
+      email: $('email').value.trim(),
+      orderLabel: orderChoiceLabel(choice),
+      bag: choice === 'bag' ? bagSummaryText() : '',
+      details: $('details').value.trim(),
+      address: $('address').value.trim()
+    };
 
-    if (document.getElementById('honey').value) return false;
+    if ($('honey').value) { form.reset(); showSuccess(); return; }
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const product = document.getElementById('product').value;
-    const details = document.getElementById('details').value.trim();
-    const shipping = document.getElementById('shipping').value.trim();
-
-    errorBox.hidden = true;
+    sending = true;
+    const btn = $('submitBtn');
     btn.disabled = true;
-    btn.textContent = 'Sending...';
+    btn.setAttribute('aria-busy', 'true');
+    btn.textContent = 'Sending your order';
+    $('formError').hidden = true;
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
 
     try {
+      const payload = {
+        _subject: `New Nalla order from ${d.name}`,
+        _template: 'table',
+        _captcha: 'false',
+        _honey: '',
+        Name: d.name,
+        Phone: d.phone,
+        Email: d.email || 'Not given',
+        Order: d.orderLabel,
+        'Bag contents': d.bag || 'Not from the bag',
+        'Colours, sizes and requests': d.details || 'None',
+        'Delivery address': d.address
+      };
+      if (d.email) payload._replyto = d.email;
+
       const res = await fetch(`https://formsubmit.co/ajax/${ORDER_EMAIL}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          _subject: `New Order Request: ${product}`,
-          _template: 'table',
-          _captcha: 'false',
-          Name: name,
-          Email: email,
-          Product: product,
-          Details: details || '(none provided)',
-          'Shipping Address': shipping
-        })
+        body: JSON.stringify(payload),
+        signal: controller.signal
       });
+      let data = {};
+      try { data = await res.json(); } catch (err) {}
+      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'Order not accepted');
 
-      if (!res.ok) throw new Error('Request failed');
-
-      cart = [];
-      saveCart();
-      renderCart();
-
-      document.getElementById('orderForm').hidden = true;
-      document.getElementById('formSuccess').hidden = false;
-      document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+      if (choice === 'bag') { bag = []; saveBag(); renderBag(); }
+      form.reset();
+      renderBagPreview();
+      showSuccess();
     } catch (err) {
-      const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AProduct: ${product}%0D%0ADetails: ${details}%0D%0AShipping Address: ${shipping}`;
-      errorBox.innerHTML =
-        `Something went wrong sending your request. Please try again, or ` +
-        `<a href="mailto:${ORDER_EMAIL}?subject=${encodeURIComponent('New Order Request: ' + product)}&body=${body}">email us directly</a>.`;
-      errorBox.hidden = false;
+      showError(orderAsText(d));
+    } finally {
+      clearTimeout(timeout);
+      sending = false;
       btn.disabled = false;
-      btn.textContent = 'Send Order Request';
+      btn.removeAttribute('aria-busy');
+      btn.textContent = 'Send my order';
     }
-
-    return false;
   }
+
+  /* Wire up */
+  renderProducts();
+  renderSelect();
+  renderBag();
+
+  $('cartBtn').addEventListener('click', e => openBag(e.currentTarget));
+  $('cartClose').addEventListener('click', closeBag);
+  $('cartOverlay').addEventListener('click', closeBag);
+  $('cartDrawer').addEventListener('keydown', trapFocus);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBag(); });
+
+  $('cartItems').addEventListener('click', e => {
+    const btn = e.target.closest('button[data-action]');
+    if (!btn) return;
+    const { id, action } = btn.dataset;
+    if (action === 'inc') changeQty(id, 1);
+    else if (action === 'dec') changeQty(id, -1);
+    else if (action === 'remove') removeItem(id);
+  });
+
+  $('cartMail').addEventListener('click', () => {
+    closeBag();
+    $('product').value = 'bag';
+    renderBagPreview();
+    $('order').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => $('name').focus({ preventScroll: true }), 450);
+  });
+
+  $('orderForm').addEventListener('submit', submitOrder);
+  $('anotherOrder').addEventListener('click', () => {
+    $('formSuccess').hidden = true;
+    $('orderForm').hidden = false;
+    $('name').focus();
+  });
+
+  const hello = "Hi Nalla! I'd love to ask about your crochet pieces.";
+  ['waFloat', 'waInline', 'waFooter'].forEach(id => { $(id).href = waLink(hello); });
+  $('year').textContent = new Date().getFullYear();
+
+  window.addEventListener('storage', e => {
+    if (e.key === STORAGE_KEY) { bag = loadBag(); renderBag(); }
+  });
+})();
 </script>
 
 </body>

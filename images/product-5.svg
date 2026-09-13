@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
 <rect width="400" height="400" fill="#EFE2C8"/>
+<g transform="translate(0 40)">
 <path d="M130 180 L140 260 Q200 290 260 260 L270 180 Z" fill="none" stroke="#B5651D" stroke-width="7"/>
 <path d="M130 180 Q200 150 270 180" fill="none" stroke="#B5651D" stroke-width="7"/>
 <path d="M150 140 Q200 110 250 140" fill="none" stroke="#B5651D" stroke-width="6"/>
-<text x="200" y="320" font-family="Georgia, serif" font-size="20" fill="#6B4A2E" text-anchor="middle">Market Basket</text>
-<text x="200" y="350" font-family="Georgia, serif" font-size="14" fill="#8A6D52" text-anchor="middle">photo coming soon</text>
+</g>
 </svg>

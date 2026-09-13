@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
 <rect width="400" height="400" fill="#E8DCC8"/>
+<g transform="translate(0 40)">
 <path d="M100 140 q100 -60 200 0" fill="none" stroke="#C67B5C" stroke-width="8" stroke-linecap="round"/>
 <path d="M100 180 q100 -60 200 0" fill="none" stroke="#C67B5C" stroke-width="8" stroke-linecap="round"/>
 <path d="M100 220 q100 -60 200 0" fill="none" stroke="#C67B5C" stroke-width="8" stroke-linecap="round"/>
-<text x="200" y="300" font-family="Georgia, serif" font-size="20" fill="#6B4A2E" text-anchor="middle">Chunky Knit Scarf</text>
-<text x="200" y="330" font-family="Georgia, serif" font-size="14" fill="#8A6D52" text-anchor="middle">photo coming soon</text>
+</g>
 </svg>

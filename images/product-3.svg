@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
 <rect width="400" height="400" fill="#F0E4D0"/>
+<g transform="translate(0 40)">
 <circle cx="200" cy="150" r="55" fill="#D9A66C"/>
 <circle cx="200" cy="90" r="30" fill="#D9A66C"/>
 <circle cx="170" cy="190" r="18" fill="#D9A66C"/>
 <circle cx="230" cy="190" r="18" fill="#D9A66C"/>
-<text x="200" y="300" font-family="Georgia, serif" font-size="20" fill="#6B4A2E" text-anchor="middle">Amigurumi Bear</text>
-<text x="200" y="330" font-family="Georgia, serif" font-size="14" fill="#8A6D52" text-anchor="middle">photo coming soon</text>
+</g>
 </svg>
