@@ -108,7 +108,7 @@
   /* Hero */
   .hero {
     text-align: center;
-    padding: 72px 24px 24px;
+    padding: 56px 24px 0;
     max-width: 760px;
     margin: 0 auto;
     display: flex; flex-direction: column; align-items: center;
@@ -146,8 +146,10 @@
   .btn.ghost:hover { background: #fff; color: var(--clay-dark); }
 
   /* Sections */
-  main > section { padding: 64px 24px; max-width: 1120px; margin: 0 auto; scroll-margin-top: 84px; }
-  main > section#shop { padding-top: 32px; }
+  main > section { padding: 0 24px; max-width: 1120px; margin: 0 auto; scroll-margin-top: 96px; }
+  main > section + section { margin-top: 88px; }
+  main > section#shop { margin-top: 56px; }
+  main > section:last-child { margin-bottom: 88px; }
   section h2 { font-size: clamp(30px, 4.6vw, 40px); color: var(--clay); text-align: center; margin-bottom: 14px; }
   .lead { text-align: center; color: var(--ink-soft); font-size: 17px; max-width: 600px; margin: 0 auto 40px; }
 
@@ -168,9 +170,9 @@
   .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(74,54,38,0.12); }
   .card img { aspect-ratio: 1 / 1; object-fit: cover; width: 100%; height: auto; background: var(--sand); }
   .card-body { padding: 20px 20px 22px; display: flex; flex-direction: column; flex: 1; }
-  .card-body h3 { font-size: 21px; color: var(--ink); margin-bottom: 2px; }
-  .card-body .price { color: var(--clay); font-weight: 700; font-size: 17px; margin: 2px 0 8px; }
-  .card-body .desc { font-size: 15px; color: var(--ink-soft); margin-bottom: 14px; flex: 1; }
+  .card-body h3 { font-size: 21px; color: var(--ink); }
+  .card-body .price { color: var(--clay); font-weight: 700; font-size: 17px; margin: 4px 0 10px; }
+  .card-body .desc { font-size: 15px; color: var(--ink-soft); margin-bottom: 16px; flex: 1; }
   .lead-time {
     display: flex; align-items: center; gap: 8px;
     font-size: 13.5px; font-weight: 600;
@@ -198,7 +200,7 @@
 
   /* How it works */
   .making { background: #fff; border: 1px solid var(--line); border-radius: 28px; }
-  main > section.making { width: calc(100% - 40px); margin: 24px auto; padding-left: 32px; padding-right: 32px; }
+  main > section.making { width: calc(100% - 40px); padding: 56px 40px; }
   .making-steps {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -221,7 +223,7 @@
   .making-step p { font-size: 15px; color: var(--ink-soft); }
 
   /* About */
-  main > section.about { width: calc(100% - 40px); background: var(--blush); border-radius: 28px; margin: 24px auto; }
+  main > section.about { width: calc(100% - 40px); background: var(--blush); border-radius: 28px; padding: 56px 40px; }
   .about .lead { margin-bottom: 0; }
 
   /* Order form */
@@ -238,7 +240,7 @@
     background: var(--cream);
     border-radius: 14px;
     padding: 12px 16px;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     font-size: 15px;
     color: var(--ink-soft);
     text-align: center;
@@ -257,7 +259,7 @@
     background: var(--blush);
     border-radius: 14px;
     padding: 14px 16px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     font-size: 15px;
     color: var(--ink-soft);
   }
@@ -311,7 +313,7 @@
     background: var(--cream);
     border-radius: 14px;
     padding: 16px 18px;
-    margin: 6px 0 22px;
+    margin: 4px 0 24px;
     font-size: 15px;
     color: var(--ink-soft);
   }
@@ -365,6 +367,7 @@
     margin-bottom: 12px;
     overflow: hidden;
   }
+  .policy:last-of-type { margin-bottom: 0; }
   .policy summary {
     cursor: pointer;
     padding: 16px 20px;
@@ -510,11 +513,10 @@
   /* Footer */
   footer {
     text-align: center;
-    padding: 40px 24px 110px;
+    padding: 48px 24px 110px;
     color: var(--ink-soft);
     font-size: 15px;
     border-top: 1px solid var(--line);
-    margin-top: 24px;
   }
   footer .brand { font-size: 44px; display: inline-block; margin-bottom: 6px; }
   .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin: 12px 0; }
@@ -527,9 +529,12 @@
     .brand { font-size: 34px; }
     header nav { gap: 14px; }
     header nav a { font-size: 14.5px; }
-    main > section { padding: 52px 18px; }
-    main > section#shop { padding-top: 28px; }
-    main > section.making, main > section.about { width: calc(100% - 24px); margin: 16px auto; padding-left: 20px; padding-right: 20px; }
+    .hero { padding-top: 44px; }
+    main > section { padding: 0 18px; }
+    main > section + section { margin-top: 64px; }
+    main > section#shop { margin-top: 48px; }
+    main > section:last-child { margin-bottom: 64px; }
+    main > section.making, main > section.about { width: calc(100% - 24px); padding: 40px 20px; }
     .order-wrap { padding: 26px 20px; border-radius: 22px; }
     .wa-float { width: 54px; height: 54px; right: 14px; bottom: 14px; }
   }
