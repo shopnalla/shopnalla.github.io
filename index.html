@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#F5F0E1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nalla | Handmade Crochet from Egypt">
-<meta property="og:description" content="Cosy crochet pieces, stitched by hand just for you. Order on WhatsApp or by email.">
+<meta property="og:description" content="Handmade crochet clothes, bags and gifts, stitched by hand just for you. Join the waitlist on WhatsApp or by email.">
 <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -346,6 +346,7 @@
   .form-success h3 { font-size: 30px; color: var(--clay); margin-bottom: 10px; }
   .form-success h3:focus { outline: none; }
   .form-success p { color: var(--ink-soft); font-size: 17px; margin-bottom: 20px; }
+  #refCode { color: var(--ink); white-space: nowrap; }
   .form-error {
     background: #FDECEA;
     border: 1px solid #E8B4AC;
@@ -558,7 +559,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <div id="page">
-<p class="notice-bar"><span class="nb-extra">Every piece is made just for you. </span>New orders currently start in about <span class="js-wait">1 to 2 weeks</span>, and we'll confirm your dates before you pay.</p>
+<p class="notice-bar"><span class="nb-extra">Every piece is made just for you. </span>New orders join our waitlist, currently about <span class="js-wait">1 to 2 weeks</span>, and nothing is paid until your order is confirmed.</p>
 <header>
   <a class="brand" href="#top" aria-label="Nalla, back to top">Nalla</a>
   <nav aria-label="Main">
@@ -599,23 +600,23 @@
     <ol class="making-steps">
       <li class="making-step">
         <span class="num" aria-hidden="true">1</span>
-        <h3>Send your request</h3>
-        <p>Fill your bag or share a custom idea, along with any colours or sizes you have in mind.</p>
+        <h3>Join the waitlist</h3>
+        <p>Send your request and you'll join our waitlist. We'll let you know you're on it, and nothing is paid at this point.</p>
       </li>
       <li class="making-step">
         <span class="num" aria-hidden="true">2</span>
-        <h3>We confirm your timing</h3>
-        <p>We check the orders we're already working on and message you with your start date and delivery estimate. Nothing is paid until you're happy with it.</p>
+        <h3>We confirm your order</h3>
+        <p>When it's your turn, we message you to confirm the details, making time and delivery estimate. Places go in order of request and yarn availability.</p>
       </li>
       <li class="making-step">
         <span class="num" aria-hidden="true">3</span>
-        <h3>Deposit and stitching</h3>
-        <p>Once you agree, you pay the 200 EGP deposit and we start crocheting your piece by hand, stitch by stitch.</p>
+        <h3>Deposit within 24 hours</h3>
+        <p>Pay the 200 EGP deposit within 24 hours to secure your place. Your making time starts as soon as it arrives.</p>
       </li>
       <li class="making-step">
         <span class="num" aria-hidden="true">4</span>
-        <h3>It comes to you</h3>
-        <p>We deliver it to your door, and you pay the rest by InstaPay or cash when it arrives.</p>
+        <h3>Made and delivered</h3>
+        <p>We crochet your piece by hand, deliver it to your door, and you pay the rest by InstaPay or cash when it arrives.</p>
       </li>
     </ol>
   </section>
@@ -627,14 +628,14 @@
 
   <section id="order" aria-labelledby="order-title">
     <h2 id="order-title">Place your order</h2>
-    <p class="lead">Share your details below and we'll message you with your start date and delivery estimate. You only pay the 200 EGP deposit once you're happy with the timing.</p>
+    <p class="lead">Share your details below to join our waitlist. When it's your turn, we'll confirm your order and dates, and you'll have 24 hours to pay the 200 EGP deposit.</p>
 
     <div class="order-wrap">
       <div class="queue-note">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <p>Right now, new orders start in about <strong class="js-wait">1 to 2 weeks</strong>. We reply to every request <span class="js-reply">within 24 hours</span> with your exact dates, and nothing is paid until you're happy with them.</p>
+        <p>New requests join our waitlist, which is currently about <strong class="js-wait">1 to 2 weeks</strong>. We'll message you <span class="js-reply">within 24 hours</span> to confirm you're on it, and again when it's your turn.</p>
       </div>
-      <p class="wa-alt">Prefer to chat? <a id="waInline" href="#" target="_blank" rel="noopener">Order with us on WhatsApp</a></p>
+      <p class="wa-alt">Prefer to chat? <a id="waInline" href="#" target="_blank" rel="noopener">Join the waitlist on WhatsApp</a></p>
 
       <div id="formError" class="form-error" role="alert" hidden></div>
 
@@ -652,7 +653,7 @@
         <div class="field">
           <label for="phone">Phone or WhatsApp number <span class="req" aria-hidden="true">*</span></label>
           <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required aria-describedby="phoneHint" placeholder="For example: 010 1234 5678">
-          <p class="hint" id="phoneHint">We'll use this to send you your dates and confirm your order.</p>
+          <p class="hint" id="phoneHint">We'll use this to confirm your place on the waitlist and let you know when it's your turn.</p>
         </div>
 
         <div class="field">
@@ -726,20 +727,20 @@
         <div class="pay-box">
           <p class="pay-title">How payment works</p>
           <ol>
-            <li><strong>Nothing to pay yet.</strong> We'll first message you with your start date and delivery estimate.</li>
-            <li><strong>200 EGP deposit</strong> once you're happy with the timing, by InstaPay, mobile wallet or bank transfer. It covers the yarn and materials for your piece.</li>
+            <li><strong>Nothing to pay while you're on the waitlist.</strong></li>
+            <li><strong>200 EGP deposit within 24 hours</strong> of us confirming your order, by InstaPay, mobile wallet or bank transfer. If it isn't paid in time, the place goes to the next person on the waitlist.</li>
             <li><strong>The rest on delivery</strong>, by InstaPay or cash when your order arrives. Your deposit comes off the total.</li>
           </ol>
           <div class="pay-estimate" id="payEstimate" hidden></div>
         </div>
 
-        <button type="submit" class="btn" id="submitBtn">Send my request</button>
+        <button type="submit" class="btn" id="submitBtn">Join the waitlist</button>
         <p class="order-note">Fields marked * are needed. We only use your details to look after your order.</p>
       </form>
 
       <div id="formSuccess" class="form-success" hidden>
-        <h3 tabindex="-1" id="successTitle">Thank you, we've got it!</h3>
-        <p>Your request is on its way to us. We'll check the orders we're working on and message you <span class="js-reply">within 24 hours</span> with your start date and delivery estimate. Nothing needs to be paid until you're happy with the timing.</p>
+        <h3 tabindex="-1" id="successTitle">You're on the waitlist!</h3>
+        <p>Thank you! Your reference is <strong id="refCode"></strong>. We'll message you <span class="js-reply">within 24 hours</span> to confirm your place, and again when it's your turn. Nothing needs to be paid until then.</p>
         <button type="button" class="btn ghost" id="anotherOrder">Place another order</button>
       </div>
     </div>
@@ -750,17 +751,19 @@
     <p class="lead">Because every piece is made just for you, here's how ordering, changes and returns work.</p>
 
     <details class="policy">
-      <summary>Made to order and timing</summary>
+      <summary>Waitlist and timing</summary>
       <div class="policy-body">
-        <p>We don't keep ready-made stock, and every piece is made by hand in our small studio. We work through requests in the order they arrive, so there may be a short wait before we can start on yours.</p>
-        <p>Before you pay anything, we'll message you with your start date and an estimated delivery date. The making time on each product is our best estimate, and we'll let you know straight away if anything changes.</p>
+        <p>Every piece is made by hand in our small studio, so new requests join a waitlist. Places are given in the order requests arrive, as long as the yarn and materials for your piece are available.</p>
+        <p>When it's your turn, we'll message you to confirm your order, its making time and an estimated delivery date. The making time depends on what you've ordered and starts once your deposit is paid.</p>
+        <p>If a yarn you've chosen isn't available, we'll suggest a similar colour or keep your place until it's back in stock.</p>
+        <p>You're welcome to leave the waitlist any time before your order is confirmed. There's nothing to pay and no need to explain.</p>
       </div>
     </details>
 
     <details class="policy">
       <summary>Changes and cancellations</summary>
       <div class="policy-body">
-        <p>Changed your mind about a colour or size? No problem at all. Just message us before we start making your piece and we'll happily update your order.</p>
+        <p>Changed your mind about a colour or size? No problem at all. Just message us before your deposit is paid and we'll happily update your request.</p>
         <p>Once we've started, the yarn has already been bought and worked, so the deposit can't be refunded. We'll always talk it through with you and find the fairest way forward.</p>
       </div>
     </details>
@@ -789,7 +792,7 @@
     <details class="policy">
       <summary>Payment</summary>
       <div class="policy-body">
-        <p>Once you're happy with the start date and delivery estimate we send you, your order is confirmed with a 200 EGP deposit, paid by InstaPay, mobile wallet or bank transfer. It covers the yarn and materials for your piece.</p>
+        <p>Once we confirm your order, you have 24 hours to pay the 200 EGP deposit by InstaPay, mobile wallet or bank transfer. It covers the yarn and materials for your piece. If it isn't paid in time, we offer the place to the next person on the waitlist to keep things fair for everyone, and you're welcome to rejoin.</p>
         <p>The rest is paid when your order is delivered, by InstaPay or cash on delivery. Your deposit comes off the total, so a 1,200 EGP piece means 200 EGP now and 1,000 EGP plus delivery when it arrives.</p>
         <p>Because the deposit pays for materials bought and used for your piece, it can't be refunded once making has begun.</p>
       </div>
@@ -850,13 +853,13 @@
         <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z"/>
         <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/>
       </svg>
-      Order on WhatsApp
+      Request on WhatsApp
     </a>
     <button class="cart-cta mail" id="cartMail" type="button">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 5L2 7"/>
       </svg>
-      Order with the form
+      Request with the form
     </button>
   </div>
 </div>
@@ -869,17 +872,17 @@
 
   // Edit products here. Everything on the page (cards, prices, form, bag) reads from this list.
   const PRODUCTS = [
-    { id: 'granny-tote', name: 'Granny Square Tote', price: 1200, lead: '7 to 10 days', leadDays: 10, img: 'images/product-1.svg',
+    { id: 'granny-tote', name: 'Granny Square Tote', price: 1200, lead: '7 to 10 days', min: 7, max: 10, img: 'images/product-1.svg',
       desc: 'A roomy everyday tote made from classic granny squares, with space for all your bits and pieces.' },
-    { id: 'chunky-scarf', name: 'Chunky Crochet Scarf', price: 900, lead: '5 to 7 days', leadDays: 7, img: 'images/product-2.svg',
+    { id: 'chunky-scarf', name: 'Chunky Crochet Scarf', price: 900, lead: '5 to 7 days', min: 5, max: 7, img: 'images/product-2.svg',
       desc: "Thick, soft and wonderfully warm. The scarf you'll reach for on every chilly evening." },
-    { id: 'amigurumi-bear', name: 'Amigurumi Bear', price: 700, lead: '3 to 5 days', leadDays: 5, img: 'images/product-3.svg',
+    { id: 'amigurumi-bear', name: 'Amigurumi Bear', price: 700, lead: '3 to 5 days', min: 3, max: 5, img: 'images/product-3.svg',
       desc: 'A little crocheted bear with a big personality. A sweet gift for a new baby or anyone who needs a hug.' },
-    { id: 'cropped-cardigan', name: 'Cropped Cardigan', price: 2000, lead: '2 to 3 weeks', leadDays: 21, img: 'images/product-4.svg',
+    { id: 'cropped-cardigan', name: 'Cropped Cardigan', price: 2000, lead: '2 to 3 weeks', min: 14, max: 21, img: 'images/product-4.svg',
       desc: 'A light, breezy cardigan made to your measurements, so it fits just the way you like.' },
-    { id: 'market-basket', name: 'Market Basket', price: 1100, lead: '7 to 10 days', leadDays: 10, img: 'images/product-5.svg',
+    { id: 'market-basket', name: 'Market Basket', price: 1100, lead: '7 to 10 days', min: 7, max: 10, img: 'images/product-5.svg',
       desc: 'A sturdy, pretty basket for market mornings, fruit on the counter or tidy shelves at home.' },
-    { id: 'baby-blanket', name: 'Baby Blanket', price: 1400, lead: '10 to 14 days', leadDays: 14, img: 'images/product-6.svg',
+    { id: 'baby-blanket', name: 'Baby Blanket', price: 1400, lead: '10 to 14 days', min: 10, max: 14, img: 'images/product-6.svg',
       desc: 'Soft, snuggly and made with gentle baby-safe yarn. A keepsake to treasure for years.' }
   ];
 
@@ -925,8 +928,19 @@
   const bagTotal = () => bag.reduce((s, i) => s + byId[i.id].price * i.qty, 0);
   const itemsLabel = n => n === 1 ? '1 item' : `${n} items`;
 
-  function slowestLead() {
-    return bag.reduce((a, i) => (!a || byId[i.id].leadDays > a.leadDays ? byId[i.id] : a), null);
+  function formatDays(min, max) {
+    if (max <= 13) return min === max ? `${min} days` : `${min} to ${max} days`;
+    const w = n => Math.max(1, Math.round(n / 7));
+    const a = w(min), b = Math.max(w(max), a);
+    if (a === b) return a === 1 ? '1 week' : `${a} weeks`;
+    return `${a} to ${b} weeks`;
+  }
+
+  // One person makes pieces one after another, so an order's making time is the sum of its pieces.
+  function bagMakingTime() {
+    const min = bag.reduce((n, i) => n + byId[i.id].min * i.qty, 0);
+    const max = bag.reduce((n, i) => n + byId[i.id].max * i.qty, 0);
+    return formatDays(min, max);
   }
 
   function bagLines() {
@@ -937,14 +951,13 @@
   }
 
   function bagSummaryText() {
-    const slow = slowestLead();
     const total = bagTotal();
     return bagLines().join('\n') +
       `\n\nTotal: ${egp(total)} plus delivery` +
-      `\nDeposit to confirm: ${egp(DEPOSIT)}` +
+      `\nDeposit once confirmed: ${egp(DEPOSIT)}` +
       `\nOn delivery: ${egp(Math.max(total - DEPOSIT, 0))} plus delivery` +
-      (slow ? `\nMaking time: about ${slow.lead}` : '') +
-      `\nCurrent wait before starting: about ${CURRENT_WAIT}`;
+      `\nMaking time: about ${bagMakingTime()}, starting once the deposit is paid` +
+      `\nCurrent waitlist: about ${CURRENT_WAIT}`;
   }
 
   function addToBag(id) {
@@ -1081,11 +1094,10 @@
 
     foot.hidden = false;
     $('cartTotal').textContent = egp(bagTotal());
-    $('cartSub').textContent = `Plus delivery. Pay ${egp(DEPOSIT)} now to confirm and ${egp(Math.max(bagTotal() - DEPOSIT, 0))} when it arrives.`;
-    const slow = slowestLead();
+    $('cartSub').textContent = `Plus delivery. Nothing to pay until we confirm your order, then a ${egp(DEPOSIT)} deposit within 24 hours.`;
     $('cartLead').innerHTML = clockSvg;
-    $('cartLead').append(`About ${slow.lead} to make, and new orders start in about ${CURRENT_WAIT}. We'll confirm your dates before you pay.`);
-    $('cartWa').href = waLink(`Hi Nalla! I'd love to order these pieces. Could you let me know when you could start?\n\n${bagSummaryText()}\n\nMy name:\nMy address (building, street, area, city):\nNearby landmark:\nMy Google Maps location link:`);
+    $('cartLead').append(`About ${bagMakingTime()} to make once your deposit is paid. Current waitlist: about ${CURRENT_WAIT}.`);
+    $('cartWa').href = waLink(`Hi Nalla! I'd love to join the waitlist for these pieces:\n\n${bagSummaryText()}\n\nMy name:\nMy address (building, street, area, city):\nNearby landmark:\nMy Google Maps location link:`);
 
     renderBagPreview();
 
@@ -1143,6 +1155,14 @@
 
   /* Order form */
   let sending = false;
+  // Kept across failed attempts so a customer who retries keeps the same reference.
+  let pendingRef = null;
+
+  function makeRef() {
+    const now = new Date();
+    const mmdd = String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0');
+    return `NAL-${mmdd}-${Math.floor(1000 + Math.random() * 9000)}`;
+  }
   const MAPS_RE = /^https?:\/\/(maps\.app\.goo\.gl|goo\.gl\/maps|(www\.)?google\.[a-z.]{2,6}\/maps|maps\.google\.[a-z.]{2,6})\S*$/i;
 
   function checkMapsLink() {
@@ -1160,8 +1180,8 @@
 
   function paymentText(total) {
     return total === null
-      ? `Deposit to confirm: ${egp(DEPOSIT)}. Rest of the price: to be confirmed.`
-      : `Deposit to confirm: ${egp(DEPOSIT)}. On delivery: ${egp(Math.max(total - DEPOSIT, 0))} plus delivery.`;
+      ? `Deposit once confirmed: ${egp(DEPOSIT)}. Rest of the price: to be confirmed.`
+      : `Deposit once confirmed: ${egp(DEPOSIT)}. On delivery: ${egp(Math.max(total - DEPOSIT, 0))} plus delivery.`;
   }
 
   function renderPayEstimate() {
@@ -1171,7 +1191,7 @@
     const total = orderTotalFor(choice);
     const row = (label, value) => el('div', { class: 'pay-row' }, [el('span', { text: label }), el('strong', { text: value })]);
     box.replaceChildren(
-      row('Deposit to confirm your order', egp(DEPOSIT)),
+      row('Deposit, once your order is confirmed', egp(DEPOSIT)),
       total === null
         ? row('Rest of the price', "We'll confirm it with you")
         : row('Pay on delivery', `${egp(Math.max(total - DEPOSIT, 0))} plus delivery`)
@@ -1204,7 +1224,8 @@
 
   function orderAsText(d) {
     return [
-      "Hi Nalla! I'd love to place an order request.",
+      "Hi Nalla! I'd love to join the waitlist.",
+      `Reference: ${d.ref}`,
       '',
       `Name: ${d.name}`,
       `Phone: ${d.phone}`,
@@ -1237,7 +1258,8 @@
     box.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  function showSuccess() {
+  function showSuccess(ref) {
+    $('refCode').textContent = ref;
     $('orderForm').hidden = true;
     $('formError').hidden = true;
     $('formSuccess').hidden = false;
@@ -1254,6 +1276,8 @@
 
     const choice = $('product').value;
     const d = {
+      ref: pendingRef || (pendingRef = makeRef()),
+      requestedAt: new Date().toLocaleString('en-GB', { timeZone: 'Africa/Cairo', dateStyle: 'medium', timeStyle: 'short' }),
       name: $('name').value.trim(),
       phone: $('phone').value.trim(),
       email: $('email').value.trim(),
@@ -1270,13 +1294,13 @@
       payment: paymentText(orderTotalFor(choice))
     };
 
-    if ($('honey').value) { form.reset(); showSuccess(); return; }
+    if ($('honey').value) { form.reset(); pendingRef = null; showSuccess(d.ref); return; }
 
     sending = true;
     const btn = $('submitBtn');
     btn.disabled = true;
     btn.setAttribute('aria-busy', 'true');
-    btn.textContent = 'Sending your request';
+    btn.textContent = 'Adding you to the waitlist';
     $('formError').hidden = true;
 
     const controller = new AbortController();
@@ -1284,10 +1308,12 @@
 
     try {
       const payload = {
-        _subject: `New Nalla order request from ${d.name}`,
+        _subject: `New Nalla waitlist request ${d.ref} from ${d.name}`,
         _template: 'table',
         _captcha: 'false',
         _honey: '',
+        Reference: d.ref,
+        'Requested at (Cairo time)': d.requestedAt,
         Name: d.name,
         Phone: d.phone,
         Email: d.email || 'Not given',
@@ -1303,7 +1329,7 @@
         'Nearby landmark': d.landmark || 'None',
         'Google Maps location': d.maps,
         Payment: d.payment,
-        'Wait shown on site': `about ${CURRENT_WAIT}`
+        'Waitlist estimate shown': `about ${CURRENT_WAIT}`
       };
       if (d.email) payload._replyto = d.email;
 
@@ -1320,7 +1346,8 @@
       if (choice === 'bag') { bag = []; saveBag(); renderBag(); }
       form.reset();
       renderBagPreview();
-      showSuccess();
+      pendingRef = null;
+      showSuccess(d.ref);
     } catch (err) {
       showError(orderAsText(d));
     } finally {
@@ -1328,7 +1355,7 @@
       sending = false;
       btn.disabled = false;
       btn.removeAttribute('aria-busy');
-      btn.textContent = 'Send my request';
+      btn.textContent = 'Join the waitlist';
     }
   }
 
